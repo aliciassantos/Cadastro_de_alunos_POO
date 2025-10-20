@@ -3,15 +3,33 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.trabalhoffinalaliciageovanna;
-
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;
+import java.time.LocalDateTime;
+import java.util.Date;
 /**
  *
  * @author DTIC
  */
+
 public class Aluno {
      //Declaração das variáveis dos alunos
     private String matricula;
+    private String nome;
+    private String CPF;
+    private String telefone;
+    private Date dataNasc; 
+    private int idade;
 
+    public Date getDataNasc() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(Date dataNasc) {
+        this.dataNasc = dataNasc;
+    }
+    
     public String getMatricula() {
         return matricula;
     }
@@ -51,8 +69,12 @@ public class Aluno {
     public void setIdade(int idade) {
         this.idade = idade;
     }
-    private String nome;
-    private String CPF;
-    private String telefone;
-    private int idade;
+    
+    public static void main(String[]arg){
+        //Cria uma lista para os alunos
+        List<Aluno> listaAlunos;
+        listaAlunos = new ArrayList<Aluno>();
+        
+         
+    }
 }
