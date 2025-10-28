@@ -69,12 +69,5 @@ public class Aluno {
     public void setIdade(int idade) {
         this.idade = idade;
     }
-    
-    public static void main(String[]arg){
-        //Cria uma lista para os alunos
-        List<Aluno> listaAlunos;
-        listaAlunos = new ArrayList<Aluno>();
-        
-         
-    }
+   
 }

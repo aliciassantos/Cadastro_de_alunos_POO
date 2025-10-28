@@ -4,19 +4,33 @@
  */
 package com.mycompany.trabalhoffinalaliciageovanna;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.*;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DTIC
  */
 public class FrnPrincipal2 extends javax.swing.JFrame {
 
+    List<Aluno> listaAlunos = new ArrayList<Aluno>();
+
     /**
+     *
      * Creates new form FrnPrincipal2
      */
     public FrnPrincipal2() {
         initComponents();
         setResizable(false);
-        setSize(480,440);
+        setSize(480, 440);
         setLocationRelativeTo(null);
     }
 
@@ -67,6 +81,11 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldDataNasc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jFormattedTextFieldDataNascFocusLost(evt);
+            }
+        });
         jFormattedTextFieldDataNasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextFieldDataNascActionPerformed(evt);
@@ -173,9 +192,9 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
                                     .addComponent(datanasc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(idade))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldIdade)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(telefone)
@@ -239,35 +258,86 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-      Aluno aluno = new Aluno();
-      
-      //Coleta os dados do aluno
-      String matriculaA = jTextFieldMatricula.getText();
-      aluno.setMatricula(matriculaA);
-      
-      String nomeA = jTextFieldNome.getText();
-      aluno.setNome(nomeA);
-      
-      String cpfA = jFormattedTextFieldCPF.getText();
-      aluno.setCPF(cpfA);
-      
-      String telefoneA = jFormattedTextFieldTelefone.getText();
-      aluno.setTelefone(telefoneA);
-      
-      //String dataNascA = jFormattedTextFieldDataNasc.getText();
-      //aluno.setNa(dataNascA);
+        Aluno aluno = new Aluno();
+        SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/YYYY");
 
+        //verifica se a matrícula do aluno foi preenchida
+        if (jTextFieldMatricula.getText().trim().length() == 0) {
+            JOptionPane.showMessageDialog(null, "É necessário informar a matricula.", "Informação", JOptionPane.WARNING_MESSAGE);
+        } else {
+            String matriculaA = jTextFieldMatricula.getText();
+            aluno.setMatricula(matriculaA);
+        }
 
-      
-      
+        //verifica se o nome do aluno foi preenchido
+        if (jTextFieldNome.getText().trim().length() == 0) {
+            JOptionPane.showMessageDialog(null, "É necessário informar a nome.", "Informação", JOptionPane.WARNING_MESSAGE);                  
+        } else {
+            String nomeA = jTextFieldNome.getText();
+            aluno.setNome(nomeA);
+        }
+        
+        //verifica se o cpf do aluno foi preenchido
+        if (jFormattedTextFieldCPF.getText().trim().length() == 0) {
+            JOptionPane.showMessageDialog(null, "É necessário informar o CPF.", "Informação", JOptionPane.WARNING_MESSAGE);           
+        } else {
+            String cpfA = jFormattedTextFieldCPF.getText();
+            aluno.setCPF(cpfA);
+        }
+        
+        //coleta o telefone do aluno
+        String telefoneA = jFormattedTextFieldTelefone.getText();
+        aluno.setTelefone(telefoneA);
+        
+        //verifica se a data foi preenchida
+        if (jFormattedTextFieldDataNasc.getText().trim().length() == 0) {
+            JOptionPane.showMessageDialog(null, "É necessário informar a data de nascimento.", "Informação", JOptionPane.WARNING_MESSAGE);
+        } else {
+            try {
+                String dataNascA = jFormattedTextFieldDataNasc.getText();
+                aluno.setDataNasc(sDdateFormate.parse(dataNascA));
+            } catch (ParseException ex) {
+                Logger.getLogger(FrnPrincipal2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+        boolean alunoEstaNaLista = alunoComMatriculaEstaNaLista(jTextFieldMatricula.getText().trim(), listaAlunos);
+        if (!alunoEstaNaLista) {
+            listaAlunos.add(aluno);
+            JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso !.",
+                    "Informação", JOptionPane.INFORMATION_MESSAGE);
+            // faze o codigo para salva no arquivo CSV
+        }
+
 // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSalvarActionPerformed
+    private boolean alunoComMatriculaEstaNaLista(String Matricula, List listaAlunos) {
+        System.out.println("Lista: " + listaAlunos);
 
-/*
+        int tamLista = listaAlunos.size();
+        System.out.println("TAM Lista: " + tamLista);
+
+        if (tamLista >= 0) {
+            for (Iterator<Aluno> iterator = listaAlunos.iterator(); iterator.hasNext();) {
+                System.out.println("dentro do for");
+                Aluno alunoDaLista = iterator.next();
+                if (tamLista >= 0 && jTextFieldMatricula.getText().equals(alunoDaLista.getMatricula())) {
+                    System.out.println("dentro do if");
+                    JOptionPane.showMessageDialog(null, "Já existe o aluno com a matrícula !." + jTextFieldMatricula.getText(),
+                            "Informação", JOptionPane.ERROR_MESSAGE);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /*
 add (int Index, E element) //adiciona em um local especifico
 remove(Object o) //remove um elemento especificado
 add(List nameList)   //adiciona ao final da lista 
-    */
+     */
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
         // TODO add your handling code here:
         FrnPesquisa fp = new FrnPesquisa();
@@ -297,6 +367,22 @@ add(List nameList)   //adiciona ao final da lista
     private void jButtonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonListarActionPerformed
+
+    private void jFormattedTextFieldDataNascFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDataNascFocusLost
+        // TODO add your handling code here:
+        SimpleDateFormat sDdateFormate = new SimpleDateFormat("MM/YYYY");
+        
+        LocalDateTime dataAtual = LocalDateTime.now();
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("MM/YYYY");
+        
+        try {
+                String dataNascA = jFormattedTextFieldDataNasc.getText();
+                sDdateFormate.parse(dataNascA);
+                
+            } catch (ParseException ex) {
+                Logger.getLogger(FrnPrincipal2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_jFormattedTextFieldDataNascFocusLost
 
     /**
      * @param args the command line arguments

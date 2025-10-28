@@ -49,9 +49,9 @@
                                   <Component id="idade" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldIdade" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jFormattedTextFieldDataNasc" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jFormattedTextFieldDataNasc" pref="120" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldIdade" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -160,6 +160,7 @@
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFormattedTextFieldDataNascFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldDataNascActionPerformed"/>
       </Events>
     </Component>
