@@ -6,7 +6,11 @@ package com.mycompany.trabalhoffinalaliciageovanna;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.*;
@@ -21,7 +25,7 @@ import javax.swing.JOptionPane;
  */
 public class FrnPrincipal2 extends javax.swing.JFrame {
 
-    List<Aluno> listaAlunos = new ArrayList<Aluno>();
+    List<Aluno> listaAlunos = new ArrayList<>();
 
     /**
      *
@@ -93,7 +97,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         });
 
         try {
-            jFormattedTextFieldCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            jFormattedTextFieldCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -313,18 +317,15 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSalvarActionPerformed
     private boolean alunoComMatriculaEstaNaLista(String Matricula, List listaAlunos) {
-        System.out.println("Lista: " + listaAlunos);
 
         int tamLista = listaAlunos.size();
-        System.out.println("TAM Lista: " + tamLista);
 
         if (tamLista >= 0) {
             for (Iterator<Aluno> iterator = listaAlunos.iterator(); iterator.hasNext();) {
                 System.out.println("dentro do for");
                 Aluno alunoDaLista = iterator.next();
                 if (tamLista >= 0 && jTextFieldMatricula.getText().equals(alunoDaLista.getMatricula())) {
-                    System.out.println("dentro do if");
-                    JOptionPane.showMessageDialog(null, "Já existe o aluno com a matrícula !." + jTextFieldMatricula.getText(),
+                    JOptionPane.showMessageDialog(null, "Já existe o aluno com a matrícula " + jTextFieldMatricula.getText()+ "!",
                             "Informação", JOptionPane.ERROR_MESSAGE);
                     return true;
                 }
@@ -369,15 +370,26 @@ add(List nameList)   //adiciona ao final da lista
     }//GEN-LAST:event_jButtonListarActionPerformed
 
     private void jFormattedTextFieldDataNascFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDataNascFocusLost
-        // TODO add your handling code here:
-        SimpleDateFormat sDdateFormate = new SimpleDateFormat("MM/YYYY");
-        
-        LocalDateTime dataAtual = LocalDateTime.now();
-        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("MM/YYYY");
+        //cria uma formatação de data
+        SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/YYYY");
+             
+       //coleta a data de nascimento inserida
+        String dataNascA = jFormattedTextFieldDataNasc.getText();
         
         try {
-                String dataNascA = jFormattedTextFieldDataNasc.getText();
-                sDdateFormate.parse(dataNascA);
+                //Formata a data de nascimento inserida e converte de java.util.date para LocalDate
+                Date dataNascAluno = sDdateFormate.parse(dataNascA);               
+                LocalDate nascAlunoDate = dataNascAluno.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    
+                //coleta a data atual
+                LocalDate dataAtual = LocalDate.now();
+
+                //calcula a diferença entre as datas e armazena na idade do aluno
+                Period periodo = Period.between(nascAlunoDate, dataAtual);
+                int idadeAluno = periodo.getYears();
+
+                String strIdade = String.valueOf(idadeAluno);
+                jTextFieldIdade.setText(strIdade);
                 
             } catch (ParseException ex) {
                 Logger.getLogger(FrnPrincipal2.class.getName()).log(Level.SEVERE, null, ex);
