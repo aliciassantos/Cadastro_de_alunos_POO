@@ -390,7 +390,9 @@ add(List nameList)   //adiciona ao final da lista
 
                 String strIdade = String.valueOf(idadeAluno);
                 jTextFieldIdade.setText(strIdade);
-                
+                //esse campo não pode ser modificado
+                jTextFieldIdade.setEditable(false);
+                                        
             } catch (ParseException ex) {
                 Logger.getLogger(FrnPrincipal2.class.getName()).log(Level.SEVERE, null, ex);
             }
