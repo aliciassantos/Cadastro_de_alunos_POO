@@ -97,7 +97,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         });
 
         try {
-            jFormattedTextFieldCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
+            jFormattedTextFieldCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -253,10 +253,6 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jFormattedTextFieldCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCPFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextFieldCPFActionPerformed
-
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
@@ -266,57 +262,50 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/YYYY");
 
         //verifica se a matrícula do aluno foi preenchida
-        if (jTextFieldMatricula.getText().trim().length() == 0) {
-            JOptionPane.showMessageDialog(null, "É necessário informar a matricula.", "Informação", JOptionPane.WARNING_MESSAGE);
+        if (jTextFieldMatricula.getText().trim().isEmpty()|| jTextFieldNome.getText().trim().isEmpty() || jFormattedTextFieldCPF.getText().trim().isEmpty() || jFormattedTextFieldDataNasc.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "É necessário preencher todos os campos!", "Informação", JOptionPane.WARNING_MESSAGE);
+            return;
         } else {
+            //coleta a matrícula do aluno
             String matriculaA = jTextFieldMatricula.getText();
             aluno.setMatricula(matriculaA);
-        }
-
-        //verifica se o nome do aluno foi preenchido
-        if (jTextFieldNome.getText().trim().length() == 0) {
-            JOptionPane.showMessageDialog(null, "É necessário informar a nome.", "Informação", JOptionPane.WARNING_MESSAGE);                  
-        } else {
+            //coleta o nome do aluno
             String nomeA = jTextFieldNome.getText();
             aluno.setNome(nomeA);
-        }
-        
-        //verifica se o cpf do aluno foi preenchido
-        if (jFormattedTextFieldCPF.getText().trim().length() == 0) {
-            JOptionPane.showMessageDialog(null, "É necessário informar o CPF.", "Informação", JOptionPane.WARNING_MESSAGE);           
-        } else {
+            //coleta o CPF do aluno
             String cpfA = jFormattedTextFieldCPF.getText();
             aluno.setCPF(cpfA);
-        }
-        
-        //coleta o telefone do aluno
-        String telefoneA = jFormattedTextFieldTelefone.getText();
-        aluno.setTelefone(telefoneA);
-        
-        //verifica se a data foi preenchida
-        if (jFormattedTextFieldDataNasc.getText().trim().length() == 0) {
-            JOptionPane.showMessageDialog(null, "É necessário informar a data de nascimento.", "Informação", JOptionPane.WARNING_MESSAGE);
-        } else {
+            //coleta a data de nascimento do aluno
             try {
                 String dataNascA = jFormattedTextFieldDataNasc.getText();
                 aluno.setDataNasc(sDdateFormate.parse(dataNascA));
             } catch (ParseException ex) {
                 Logger.getLogger(FrnPrincipal2.class.getName()).log(Level.SEVERE, null, ex);
             }
+            //coleta o telefone do aluno(opcional)
+            String telefoneA = jFormattedTextFieldTelefone.getText();
+            aluno.setTelefone(telefoneA);
         }
-        
         
         boolean alunoEstaNaLista = alunoComMatriculaEstaNaLista(jTextFieldMatricula.getText().trim(), listaAlunos);
         if (!alunoEstaNaLista) {
-            listaAlunos.add(aluno);
+            System.out.println("testando");
             JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso !.",
                     "Informação", JOptionPane.INFORMATION_MESSAGE);
-            // faze o codigo para salva no arquivo CSV
+            listaAlunos.add(aluno);
+            // fazer o codigo para salva no arquivo CSV
         }
-
-// TODO add your handling code here:
+        
+        // Limpar os campos depois de salvar 
+        jTextFieldMatricula.setText("");
+        jTextFieldNome.setText("");
+        jFormattedTextFieldCPF.setText("");
+        jFormattedTextFieldTelefone.setText("");
+        jFormattedTextFieldDataNasc.setText("");
+        jTextFieldIdade.setText("");
     }//GEN-LAST:event_jButtonSalvarActionPerformed
-    private boolean alunoComMatriculaEstaNaLista(String Matricula, List listaAlunos) {
+    
+    private boolean alunoComMatriculaEstaNaLista(String matricula, List listaAlunos) {
 
         int tamLista = listaAlunos.size();
 
@@ -397,6 +386,10 @@ add(List nameList)   //adiciona ao final da lista
                 Logger.getLogger(FrnPrincipal2.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_jFormattedTextFieldDataNascFocusLost
+
+    private void jFormattedTextFieldCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldCPFActionPerformed
 
     /**
      * @param args the command line arguments
