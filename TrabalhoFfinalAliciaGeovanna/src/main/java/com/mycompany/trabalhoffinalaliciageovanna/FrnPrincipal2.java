@@ -67,6 +67,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         jButtonSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 255, 153));
 
         matricula.setText("Matrícula:");
 
@@ -136,6 +137,8 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             }
         });
 
+        jButtonPesquisar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonPesquisar.setText("Pesquisar");
         jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,8 +146,12 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(153, 153, 255));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("jButton1");
 
+        jButtonInserir.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonInserir.setForeground(new java.awt.Color(255, 255, 255));
         jButtonInserir.setText("Inserir");
         jButtonInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +159,8 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             }
         });
 
+        jButtonListar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonListar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonListar.setText("Listar ");
         jButtonListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,8 +168,12 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             }
         });
 
+        jButtonApagar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonApagar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonApagar.setText("Apagar");
 
+        jButtonSalvar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonSalvar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSalvar.setText("Salvar");
         jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -287,7 +300,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             aluno.setTelefone(telefoneA);
         }
         
-        boolean alunoEstaNaLista = alunoComMatriculaEstaNaLista(jTextFieldMatricula.getText().trim(), listaAlunos);
+        boolean alunoEstaNaLista = alunoComMatriculaEstaNaLista(listaAlunos);
         if (!alunoEstaNaLista) {
             System.out.println("testando");
             JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso !.",
@@ -299,13 +312,13 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         // Limpar os campos depois de salvar 
         jTextFieldMatricula.setText("");
         jTextFieldNome.setText("");
-        jFormattedTextFieldCPF.setText("");
-        jFormattedTextFieldTelefone.setText("");
-        jFormattedTextFieldDataNasc.setText("");
+        jFormattedTextFieldCPF.setValue(null);
+        jFormattedTextFieldTelefone.setValue(null);
+        jFormattedTextFieldDataNasc.setValue(null);
         jTextFieldIdade.setText("");
     }//GEN-LAST:event_jButtonSalvarActionPerformed
     
-    private boolean alunoComMatriculaEstaNaLista(String matricula, List listaAlunos) {
+    private boolean alunoComMatriculaEstaNaLista(List listaAlunos) {
 
         int tamLista = listaAlunos.size();
 
