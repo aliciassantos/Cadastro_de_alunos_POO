@@ -3,28 +3,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.trabalhoffinalaliciageovanna;
+import java.text.SimpleDateFormat;
 import java.util.Optional;
 import java.util.ArrayList;
 import java.util.*;
 import java.util.List;
+import javax.swing.JOptionPane;
 /**
  *
  * @author DTIC
  */
-public class FrnPesquisa extends javax.swing.JFrame {
-    List<Aluno> listaAlunos = new ArrayList<>();
-    /**
-     * Creates new form FrnPesquisa
-     */
-    public FrnPesquisa() {
- 
-        initComponents();
-        setResizable(false);
-        setSize(480, 440);
-        setLocationRelativeTo(null);
-  
-    }
+public class FrnPesquisa extends javax.swing.JDialog {
 
+    
+    private List<Aluno> listaAlunos;
+    
+    //contrutor para usar a lista de alunos salva no FrnPrincipal2
+    public FrnPesquisa(java.awt.Frame parent, boolean modal, List<Aluno> listaRecebida) {
+        super(parent, modal);
+        initComponents();
+        
+        //pega a lista de alunos do FrnPrincipal2 e dimensiona a tela
+        this.listaAlunos = listaRecebida;
+        this.setSize(480, 440);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+    }
+    public FrnPesquisa(){
+    
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +56,7 @@ public class FrnPesquisa extends javax.swing.JFrame {
         jTextFieldQtdAlunos = new javax.swing.JTextField();
         jTextFieldTelefone = new javax.swing.JTextField();
         jTextFieldDataNasc = new javax.swing.JTextField();
-        jTextFieldMatriculaA5 = new javax.swing.JTextField();
+        jTextFieldCPF = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jButtonPesquisar = new javax.swing.JButton();
@@ -57,7 +65,7 @@ public class FrnPesquisa extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(615, 441));
 
         jTextFieldMatriculaA.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -107,9 +115,9 @@ public class FrnPesquisa extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldMatriculaA5.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldMatriculaA5ActionPerformed(evt);
+                jTextFieldCPFActionPerformed(evt);
             }
         });
 
@@ -139,7 +147,7 @@ public class FrnPesquisa extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(matricula3)
                         .addGap(30, 30, 30)
-                        .addComponent(jTextFieldMatriculaA5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -195,7 +203,7 @@ public class FrnPesquisa extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(matricula3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldMatriculaA5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(matricula4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,7 +223,7 @@ public class FrnPesquisa extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldMatriculaAActionPerformed
 
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
     private void jTextFieldQtdAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldQtdAlunosActionPerformed
@@ -230,13 +238,12 @@ public class FrnPesquisa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDataNascActionPerformed
 
-    private void jTextFieldMatriculaA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMatriculaA5ActionPerformed
+    private void jTextFieldCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCPFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldMatriculaA5ActionPerformed
+    }//GEN-LAST:event_jTextFieldCPFActionPerformed
     
     
     private Optional<Aluno> buscarAluno(String matricula) {
-        
         return listaAlunos.stream()
                 //Filtra a lista, mantendo apenas o aluno cuja matrícula seja igual
                 .filter(Aluno -> Aluno.getMatricula().equals(matricula))
@@ -251,11 +258,43 @@ public class FrnPesquisa extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldMatriculaAFocusLost
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-        // TODO add your handling code here:
-        String matricula = jTextFieldMatriculaA.getText();
+       String matricula = jTextFieldMatriculaA.getText();
+    
+        //impede a modificação dos dados da caixa de texto
+        jTextFieldQtdAlunos.setEditable(false);
+        jTextFieldNome.setEditable(false);
+        jTextFieldCPF.setEditable(false);
+        jTextFieldTelefone.setEditable(false);
+        jTextFieldDataNasc.setEditable(false);
         
-        Aluno aluno = new Aluno();
+        //Exibe a quantidade de alunos na lista
+        String qtdAlunos = String.valueOf(listaAlunos.size());
+        jTextFieldQtdAlunos.setText(qtdAlunos);
+             
+        //busca o aluno com base na matricula inserida
+        Optional<Aluno> procurandoAluno = buscarAluno(matricula);
         
+        if (procurandoAluno.isPresent()){
+            Aluno alunoEncontrado = procurandoAluno.get();
+            
+            String nomeAluno = alunoEncontrado.getNome();
+            jTextFieldNome.setText(nomeAluno);
+            
+            String cpfAluno = alunoEncontrado.getCPF();
+            jTextFieldCPF.setText(cpfAluno);
+            
+            String TelefoneAluno = alunoEncontrado.getTelefone();
+            jTextFieldTelefone.setText(TelefoneAluno);
+            
+            Date dataAluno = alunoEncontrado.getDataNasc();
+            
+            SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/YYYY");
+            String dataNascA = sDdateFormate.format(dataAluno);
+            jTextFieldDataNasc.setText(dataNascA);
+        } 
+        else{
+             JOptionPane.showMessageDialog(null, "Matrícula não cadastrada.", "Informação", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
     /**
@@ -300,9 +339,9 @@ public class FrnPesquisa extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextFieldCPF;
     private javax.swing.JTextField jTextFieldDataNasc;
     private javax.swing.JTextField jTextFieldMatriculaA;
-    private javax.swing.JTextField jTextFieldMatriculaA5;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldQtdAlunos;
     private javax.swing.JTextField jTextFieldTelefone;

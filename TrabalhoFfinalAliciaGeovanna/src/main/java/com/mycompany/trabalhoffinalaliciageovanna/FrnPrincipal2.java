@@ -7,11 +7,8 @@ package com.mycompany.trabalhoffinalaliciageovanna;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.*;
 import java.util.List;
@@ -342,9 +339,8 @@ remove(Object o) //remove um elemento especificado
 add(List nameList)   //adiciona ao final da lista 
      */
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-        // TODO add your handling code here:
-        FrnPesquisa fp = new FrnPesquisa();
-        fp.setVisible(true);
+        FrnPesquisa fp = new FrnPesquisa(this, true, this.listaAlunos);
+        fp.setVisible(true); 
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
     private void jFormattedTextFieldDataNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDataNascActionPerformed
