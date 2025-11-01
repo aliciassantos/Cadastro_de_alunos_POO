@@ -57,7 +57,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         jTextFieldNome = new javax.swing.JTextField();
         jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
         jButtonPesquisar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonExibir = new javax.swing.JButton();
         jButtonInserir = new javax.swing.JButton();
         jButtonListar = new javax.swing.JButton();
         jButtonApagar = new javax.swing.JButton();
@@ -66,16 +66,28 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 153));
 
+        matricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        matricula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         matricula.setText("Matrícula:");
 
+        nome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        nome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nome.setText("Nome:");
 
+        datanasc.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        datanasc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         datanasc.setText("Data nascimento:");
 
+        idade.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        idade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         idade.setText("Idade:");
 
+        telefone.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        telefone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         telefone.setText("Telefone:");
 
+        cpf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cpf.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cpf.setText("CPF:");
 
         try {
@@ -83,6 +95,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldDataNasc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jFormattedTextFieldDataNasc.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jFormattedTextFieldDataNascFocusLost(evt);
@@ -99,24 +112,28 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldCPF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jFormattedTextFieldCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextFieldCPFActionPerformed(evt);
             }
         });
 
+        jTextFieldMatricula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMatriculaActionPerformed(evt);
             }
         });
 
+        jTextFieldIdade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldIdade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldIdadeActionPerformed(evt);
             }
         });
 
+        jTextFieldNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeActionPerformed(evt);
@@ -128,6 +145,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldTelefone.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jFormattedTextFieldTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextFieldTelefoneActionPerformed(evt);
@@ -135,6 +153,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         });
 
         jButtonPesquisar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonPesquisar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonPesquisar.setText("Pesquisar");
         jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -143,11 +162,18 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(153, 153, 255));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("jButton1");
+        jButtonExibir.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonExibir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonExibir.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonExibir.setText("Exibir");
+        jButtonExibir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExibirActionPerformed(evt);
+            }
+        });
 
         jButtonInserir.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonInserir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonInserir.setForeground(new java.awt.Color(255, 255, 255));
         jButtonInserir.setText("Inserir");
         jButtonInserir.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +183,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         });
 
         jButtonListar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonListar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonListar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonListar.setText("Listar ");
         jButtonListar.addActionListener(new java.awt.event.ActionListener() {
@@ -166,6 +193,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         });
 
         jButtonApagar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonApagar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonApagar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonApagar.setText("Apagar");
         jButtonApagar.addActionListener(new java.awt.event.ActionListener() {
@@ -175,6 +203,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         });
 
         jButtonSalvar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonSalvar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSalvar.setText("Salvar");
         jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -188,82 +217,75 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
                         .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonPesquisar)
-                        .addGap(4, 4, 4)
-                        .addComponent(jButtonApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(jButtonInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonListar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(datanasc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(idade))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jFormattedTextFieldDataNasc)
-                                .addComponent(jTextFieldIdade)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(39, 39, 39)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(nome)
-                                        .addComponent(matricula)
-                                        .addComponent(cpf)))
-                                .addComponent(telefone, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextFieldMatricula)
-                                .addComponent(jTextFieldNome)
-                                .addComponent(jFormattedTextFieldCPF)
-                                .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButtonInserir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonListar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(idade)
+                            .addComponent(telefone)
+                            .addComponent(cpf)
+                            .addComponent(matricula)
+                            .addComponent(nome)
+                            .addComponent(datanasc))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(datanasc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonPesquisar)
                     .addComponent(jButtonSalvar)
+                    .addComponent(jButtonPesquisar)
                     .addComponent(jButtonApagar)
                     .addComponent(jButtonInserir)
                     .addComponent(jButtonListar)
-                    .addComponent(jButton3))
-                .addGap(39, 39, 39))
+                    .addComponent(jButtonExibir))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(matricula))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nome))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpf))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telefone))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(datanasc))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idade))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         pack();
@@ -462,10 +484,16 @@ add(List nameList)   //adiciona ao final da lista
 
     private void jButtonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApagarActionPerformed
         // TODO add your handling code here:                                          
-        FrnRemover frm = new FrnRemover(listaAlunos);
+        FrnRemove frm = new FrnRemove(this, true, this.listaAlunos);
         frm.setVisible(true);
 
     }//GEN-LAST:event_jButtonApagarActionPerformed
+
+    private void jButtonExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExibirActionPerformed
+        // TODO add your handling code here:
+        FrnListarTodosAlunos flta = new FrnListarTodosAlunos(this, true, this.listaAlunos);
+        flta.setVisible(true); 
+    }//GEN-LAST:event_jButtonExibirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -506,8 +534,8 @@ add(List nameList)   //adiciona ao final da lista
     private javax.swing.JLabel cpf;
     private javax.swing.JLabel datanasc;
     private javax.swing.JLabel idade;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonApagar;
+    private javax.swing.JButton jButtonExibir;
     private javax.swing.JButton jButtonInserir;
     private javax.swing.JButton jButtonListar;
     private javax.swing.JButton jButtonPesquisar;

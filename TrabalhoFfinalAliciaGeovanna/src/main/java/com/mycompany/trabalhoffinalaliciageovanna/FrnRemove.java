@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package com.mycompany.trabalhoffinalaliciageovanna;
 
@@ -12,19 +12,24 @@ import javax.swing.JOptionPane;
  *
  * @author geova
  */
-public class FrnRemover extends javax.swing.JFrame {
+public class FrnRemove extends javax.swing.JDialog {
     private List<Aluno> listaAlunos;
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrnRemover.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrnRemove.class.getName());
 
     /**
-     * Creates new form FrnRemover
+     * Creates new form FrnRemove
      */
-    public FrnRemover(List<Aluno> listaRecebida) {
+    public FrnRemove(java.awt.Frame parent, boolean modal,List<Aluno> listaRecebida) {
+        super(parent, modal);
         initComponents();
-        this.listaAlunos = listaRecebida;//receber a mesma lista da frnPrincipal2
-        setResizable(false);
-        setSize(540, 380);
-        setLocationRelativeTo(null);
+        //pega a lista de alunos do FrnPrincipal2 e dimensiona a tela
+        this.listaAlunos = listaRecebida;
+        this.setSize(540, 380);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+    }
+    private FrnRemove() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     // Método de remoção por matrícula
@@ -34,7 +39,6 @@ public class FrnRemover extends javax.swing.JFrame {
         }
         return alunos;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,24 +48,16 @@ public class FrnRemover extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jFormattedTextFieldMatriculaRemover = new javax.swing.JFormattedTextField();
         jFormattedTextFieldNomeRemover = new javax.swing.JFormattedTextField();
         jFormattedTextFieldCpfRemover = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         jButtonRemover = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Matricula: ");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Nome: ");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -97,12 +93,22 @@ public class FrnRemover extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Remoção de Aluno");
 
+        jButtonRemover.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonRemover.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonRemover.setText("Remover");
         jButtonRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRemoverActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Matricula: ");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Nome: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,10 +118,11 @@ public class FrnRemover extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jFormattedTextFieldNomeRemover, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldCpfRemover, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.CENTER, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addComponent(jFormattedTextFieldCpfRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonRemover))
                     .addComponent(jFormattedTextFieldMatriculaRemover, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                    .addComponent(jButtonRemover, javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -134,17 +141,35 @@ public class FrnRemover extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jFormattedTextFieldNomeRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jFormattedTextFieldCpfRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonRemover)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jFormattedTextFieldMatriculaRemoverFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextFieldMatriculaRemoverFocusLost
+        // TODO add your handling code here:
+        String matricula = jFormattedTextFieldMatriculaRemover.getText();
+        if (listaAlunos != null && !matricula.isEmpty()) {
+            Optional<Aluno> alunoOpt = listaAlunos.stream()
+            .filter(a -> a.getMatricula().equals(matricula))
+            .findFirst();
+            if (alunoOpt.isPresent()) {
+                Aluno aluno = alunoOpt.get();
+                jFormattedTextFieldNomeRemover.setText(aluno.getNome());
+                jFormattedTextFieldCpfRemover.setText(aluno.getCPF());
+            } else {
+                jFormattedTextFieldNomeRemover.setText("");
+                jFormattedTextFieldCpfRemover.setText("");
+            }
+        }
+    }//GEN-LAST:event_jFormattedTextFieldMatriculaRemoverFocusLost
 
     private void jFormattedTextFieldMatriculaRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldMatriculaRemoverActionPerformed
         // TODO add your handling code here:
@@ -172,48 +197,34 @@ public class FrnRemover extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonRemoverActionPerformed
 
-    private void jFormattedTextFieldMatriculaRemoverFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextFieldMatriculaRemoverFocusLost
-        // TODO add your handling code here:
-        String matricula = jFormattedTextFieldMatriculaRemover.getText();
-        if (listaAlunos != null && !matricula.isEmpty()) {
-            Optional<Aluno> alunoOpt = listaAlunos.stream()
-                    .filter(a -> a.getMatricula().equals(matricula))
-                    .findFirst();
-            if (alunoOpt.isPresent()) {
-                Aluno aluno = alunoOpt.get();
-                jFormattedTextFieldNomeRemover.setText(aluno.getNome());
-                jFormattedTextFieldCpfRemover.setText(aluno.getCPF());
-            } else {
-                jFormattedTextFieldNomeRemover.setText("");
-                jFormattedTextFieldCpfRemover.setText("");
-            }
-        }
-    }//GEN-LAST:event_jFormattedTextFieldMatriculaRemoverFocusLost
-
     /**
      * @param args the command line arguments
      */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-//            logger.log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(() -> new FrnRemover(null).setVisible(true));
-//    }
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrnRemove().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonRemover;
