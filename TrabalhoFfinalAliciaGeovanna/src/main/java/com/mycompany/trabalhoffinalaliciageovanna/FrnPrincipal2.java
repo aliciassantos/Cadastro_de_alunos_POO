@@ -373,7 +373,58 @@ add(List nameList)   //adiciona ao final da lista
     }//GEN-LAST:event_jButtonInserirActionPerformed
 
     private void jButtonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarActionPerformed
-        // TODO add your handling code here:
+        
+        //declaração de variáveis
+        int idadeAluno;
+        int menorIdade;
+        int maiorIdade = 0;
+        
+        Period periodo;
+        Date nascA;
+        Aluno a; 
+        LocalDate dataAtual, nascAlunoDate;
+        
+        //coleta a data atual
+        dataAtual = LocalDate.now();
+        
+        //Calcula a idade do primeiro aluno na lista para comparação com as demais
+        a = listaAlunos.get(0);
+        nascA = a.getDataNasc();
+        nascAlunoDate = nascA.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        
+        periodo = Period.between(nascAlunoDate, dataAtual);
+        idadeAluno = periodo.getYears();
+        menorIdade = idadeAluno;
+        
+        for (int i = 0; i < listaAlunos.size(); i++){
+            //pega os dados do aluno com indice i
+            a = listaAlunos.get(i);
+            
+            //Formata a data de nascimento inserida e converte de java.util.date para LocalDate
+            nascA = a.getDataNasc();
+            nascAlunoDate = nascA.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            
+            //calcula a diferença entre as datas e armazena na idade do aluno
+            periodo = Period.between(nascAlunoDate, dataAtual);
+            idadeAluno = periodo.getYears();
+            
+            //analisa qual é o aluno mais novo e o mais velho
+            if (idadeAluno < menorIdade){
+                menorIdade = idadeAluno;
+            }
+            
+            if(idadeAluno > maiorIdade){
+                maiorIdade = idadeAluno;
+            }
+        }
+        
+        //transforma as idades em strings para exibição
+        String strMenorId = String.valueOf(menorIdade);
+        String strMaiorId = String.valueOf(maiorIdade);
+        
+        //painel de exibição da mensagem
+        JOptionPane.showMessageDialog(null, "O aluno mais novo possui " + strMenorId + " anos e o mais velho possui " + strMaiorId, "Análise de idade", JOptionPane.INFORMATION_MESSAGE);
+        
     }//GEN-LAST:event_jButtonListarActionPerformed
 
     private void jFormattedTextFieldDataNascFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDataNascFocusLost
