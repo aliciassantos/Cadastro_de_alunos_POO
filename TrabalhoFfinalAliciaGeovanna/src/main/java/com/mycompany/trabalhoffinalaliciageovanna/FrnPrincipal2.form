@@ -27,43 +27,40 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="jButtonSalvar" min="-2" pref="80" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonPesquisar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonApagar" min="-2" pref="90" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonInserir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonListar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButtonExibir" min="-2" pref="72" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="idade" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="telefone" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="cpf" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="matricula" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="nome" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="datanasc" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="jTextFieldIdade" alignment="2" min="-2" pref="158" max="-2" attributes="0"/>
-                          <Component id="jTextFieldNome" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextFieldTelefone" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextFieldDataNasc" alignment="2" min="-2" pref="158" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextFieldCPF" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
-                          <Component id="jTextFieldMatricula" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="idade" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="telefone" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="cpf" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="matricula" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="nome" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="datanasc" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="jTextFieldIdade" alignment="2" min="-2" pref="158" max="-2" attributes="0"/>
+                  <Component id="jTextFieldNome" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
+                  <Component id="jFormattedTextFieldTelefone" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
+                  <Component id="jFormattedTextFieldDataNasc" alignment="2" min="-2" pref="158" max="-2" attributes="0"/>
+                  <Component id="jFormattedTextFieldCPF" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
+                  <Component id="jTextFieldMatricula" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="9" max="32767" attributes="0"/>
+              <Component id="jButtonSalvar" min="-2" pref="80" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jButtonPesquisar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jButtonApagar" min="-2" pref="90" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jButtonInserir" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jButtonListar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jButtonExibir" min="-2" pref="72" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

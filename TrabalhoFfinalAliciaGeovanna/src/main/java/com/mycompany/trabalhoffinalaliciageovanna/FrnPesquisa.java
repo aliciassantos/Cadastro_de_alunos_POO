@@ -290,6 +290,7 @@ public class FrnPesquisa extends javax.swing.JDialog {
         } 
         else{
              JOptionPane.showMessageDialog(null, "Matrícula não cadastrada.", "Informação", JOptionPane.WARNING_MESSAGE);
+
         }
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
 

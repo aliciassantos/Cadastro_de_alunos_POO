@@ -218,38 +218,37 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonPesquisar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonInserir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonListar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(idade)
-                            .addComponent(telefone)
-                            .addComponent(cpf)
-                            .addComponent(matricula)
-                            .addComponent(nome)
-                            .addComponent(datanasc))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGap(104, 104, 104)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(idade)
+                    .addComponent(telefone)
+                    .addComponent(cpf)
+                    .addComponent(matricula)
+                    .addComponent(nome)
+                    .addComponent(datanasc))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonPesquisar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonInserir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonListar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,6 +353,8 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         jFormattedTextFieldDataNasc.setValue(null);
         jTextFieldIdade.setText("");
     }//GEN-LAST:event_jButtonSalvarActionPerformed
+   
+    
     
     private boolean alunoComMatriculaEstaNaLista(List<Aluno> listaAlunos, String matricula) {
         for (Aluno aluno : listaAlunos) {
@@ -392,12 +393,92 @@ add(List nameList)   //adiciona ao final da lista
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldTelefoneActionPerformed
 
+    //função auxiliar para armazenar a posição do indice da lista
+    private int coletaPosicao(String posicaoDigitada) {
+        //tratamento de erro para não salvar um caractere
+        try {
+            int posicaoAluno = Integer.parseInt(posicaoDigitada);
+            return posicaoAluno;
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
     private void jButtonInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInserirActionPerformed
-        // TODO add your handling code here:
+        //painel para coletar a posição específica a inserir o aluno
+        String posicaoDigitada = JOptionPane.showInputDialog(null, "Quantidade de alunos na lista: " + listaAlunos.size() + "\nInsira o valor da posição que deseja inserir: ", "Inserir aluno em posição específica", JOptionPane.QUESTION_MESSAGE);
+        
+        //transforma a string em int com ajuda da função coletaPosicao
+        int posicao = coletaPosicao(posicaoDigitada);
+
+        if (posicao < 0 || posicao > listaAlunos.size()) {
+            JOptionPane.showMessageDialog(null, "O valor inserido não é um número válido", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        else {
+            Aluno aluno = new Aluno();
+            SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/yyyy");
+
+            //verifica se a matrícula do aluno foi preenchida
+            if (jTextFieldMatricula.getText().trim().isEmpty()
+                    || jTextFieldNome.getText().trim().isEmpty()
+                    || jFormattedTextFieldCPF.getText().trim().isEmpty()
+                    || jFormattedTextFieldDataNasc.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "É necessário preencher todos os campos!", "Informação", JOptionPane.WARNING_MESSAGE);
+                return;
+            } else {
+                //coleta a matrícula do aluno
+                System.out.println("Começou a coletar os dados");
+                String matriculaA = jTextFieldMatricula.getText();
+                aluno.setMatricula(matriculaA);
+                //coleta o nome do aluno
+                String nomeA = jTextFieldNome.getText();
+                aluno.setNome(nomeA);
+                //coleta o CPF do aluno
+                String cpfA = jFormattedTextFieldCPF.getText();
+                aluno.setCPF(cpfA);
+                // Coleta a data de nascimento e calcula a idade para sincronizar no objeto Aluno
+                try {
+                    String dataNascA = jFormattedTextFieldDataNasc.getText();
+                    Date dataNasc = sDdateFormate.parse(dataNascA);
+                    aluno.setDataNasc(dataNasc);
+
+                    // Calcula e seta a idade no objeto Aluno (usando o mesmo código do focusLost para consistência)
+                    LocalDate nascAlunoDate = dataNasc.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                    LocalDate dataAtual = LocalDate.now();
+                    Period periodo = Period.between(nascAlunoDate, dataAtual);
+                    int idadeCalculada = periodo.getYears();
+                    aluno.setIdade(idadeCalculada);  // Agora o objeto Aluno tem a idade correta
+
+                } catch (ParseException ex) {
+                    Logger.getLogger(FrnPrincipal2.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Data de nascimento inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    return;  // Sai se houver erro de parsing
+                }
+                //coleta o telefone do aluno(opcional)
+                String telefoneA = jFormattedTextFieldTelefone.getText();
+                aluno.setTelefone(telefoneA);
+            }
+
+            if (!alunoComMatriculaEstaNaLista(listaAlunos, aluno.getMatricula())) {  // Passa a matrícula como parâmetro (veja Problema 4)
+                listaAlunos.add(posicao, aluno);
+                JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
+                // TODO: Implementar salvamento em CSV aqui, se necessário
+            }
+
+            // Limpar os campos depois de salvar 
+            jTextFieldMatricula.setText("");
+            jTextFieldNome.setText("");
+            jFormattedTextFieldCPF.setValue(null);
+            jFormattedTextFieldTelefone.setValue(null);
+            jFormattedTextFieldDataNasc.setValue(null);
+            jTextFieldIdade.setText("");
+        }
+        
+                                       
     }//GEN-LAST:event_jButtonInserirActionPerformed
 
     private void jButtonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarActionPerformed
-        
+
         //declaração de variáveis
         int idadeAluno;
         int menorIdade;
