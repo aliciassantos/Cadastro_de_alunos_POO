@@ -3,19 +3,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.trabalhoffinalaliciageovanna;
+import java.io.Serializable;
 import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 /**
  *
  * @author DTIC
  */
-
-public class Aluno {
+// mostrar que Aluno é uma entidade
+@Entity 
+// Nomeia tabela
+@Table(name = "Aluno")
+public class Aluno implements Serializable {
      //Declaração das variáveis dos alunos
+    // Definir a chave primária 
+    @Id
+    @Column(name = "matricula", unique = true, nullable = false)
     private String matricula;
+    @Column(name = "nome",nullable = false)
     private String nome;
+    @Column(name = "cpf",unique = true, nullable = false)
     private String CPF;
+    @Column(name = "telefone")
     private String telefone;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "data_nasc", nullable = false)
     private Date dataNasc; 
+    @Column(name="idade", nullable = false)
     private int idade;
 
     public Date getDataNasc() {

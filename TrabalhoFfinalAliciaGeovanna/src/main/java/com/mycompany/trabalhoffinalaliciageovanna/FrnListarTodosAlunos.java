@@ -55,7 +55,7 @@ public class FrnListarTodosAlunos extends javax.swing.JDialog {
                      dataNascimentoFormatada = "Data inválida";
                 }
                 // Formatação para que todas as informações de cada aluno
-                sb.append("=========================================================\n");
+                sb.append("======================================================================\n");
                 sb.append("Matrícula: ").append(aluno.getMatricula()).append("\n");
                 sb.append("Nome: ").append(aluno.getNome()).append("\n");
                 sb.append("Data de Nascimento: ").append(dataNascimentoFormatada).append("\n"); 

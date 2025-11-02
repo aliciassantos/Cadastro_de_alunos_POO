@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author DTIC
@@ -339,9 +340,9 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             aluno.setTelefone(telefoneA);
         }
         
-        if (!alunoComMatriculaEstaNaLista(listaAlunos, aluno.getMatricula())) {  // Passa a matrícula como parâmetro (veja Problema 4)
-            JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
+         if (!alunoComMatriculaEstaNaLista(listaAlunos, aluno.getMatricula())) {  // Passa a matrícula como parâmetro (veja Problema 4)
             listaAlunos.add(aluno);
+            JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
             // TODO: Implementar salvamento em CSV aqui, se necessário
         }
         
@@ -363,7 +364,8 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         }
         return false;
     }
-
+  
+    
     /*
 add (int Index, E element) //adiciona em um local especifico
 remove(Object o) //remove um elemento especificado
@@ -477,7 +479,7 @@ add(List nameList)   //adiciona ao final da lista
                 Logger.getLogger(FrnPrincipal2.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_jFormattedTextFieldDataNascFocusLost
-
+    
     private void jFormattedTextFieldCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCPFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldCPFActionPerformed
