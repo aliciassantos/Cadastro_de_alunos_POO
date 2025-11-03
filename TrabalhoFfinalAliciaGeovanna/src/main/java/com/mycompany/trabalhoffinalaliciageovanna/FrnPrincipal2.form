@@ -26,27 +26,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="idade" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="telefone" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="cpf" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="matricula" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="nome" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="datanasc" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="2" attributes="0">
-                  <Component id="jTextFieldIdade" alignment="2" min="-2" pref="158" max="-2" attributes="0"/>
-                  <Component id="jTextFieldNome" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
-                  <Component id="jFormattedTextFieldTelefone" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
-                  <Component id="jFormattedTextFieldDataNasc" alignment="2" min="-2" pref="158" max="-2" attributes="0"/>
-                  <Component id="jFormattedTextFieldCPF" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
-                  <Component id="jTextFieldMatricula" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="9" max="32767" attributes="0"/>
               <Component id="jButtonSalvar" min="-2" pref="80" max="-2" attributes="0"/>
@@ -62,6 +41,27 @@
               <Component id="jButtonExibir" min="-2" pref="72" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="datanasc" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="idade" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="telefone" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="cpf" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="matricula" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="nome" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="jTextFieldIdade" alignment="2" min="-2" pref="158" max="-2" attributes="0"/>
+                  <Component id="jTextFieldNome" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
+                  <Component id="jFormattedTextFieldTelefone" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
+                  <Component id="jFormattedTextFieldDataNasc" alignment="2" min="-2" pref="158" max="-2" attributes="0"/>
+                  <Component id="jFormattedTextFieldCPF" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
+                  <Component id="jTextFieldMatricula" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -76,7 +76,7 @@
                   <Component id="jButtonListar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonExibir" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextFieldMatricula" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="matricula" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -106,7 +106,7 @@
                   <Component id="jTextFieldIdade" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="idade" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="115" max="32767" attributes="0"/>
+              <EmptySpace pref="87" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -117,7 +117,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Matr&#xed;cula:"/>
       </Properties>
     </Component>
@@ -126,7 +126,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
     </Component>
@@ -135,7 +135,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Data nascimento:"/>
       </Properties>
     </Component>
@@ -144,7 +144,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Idade:"/>
       </Properties>
     </Component>
@@ -153,7 +153,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Telefone:"/>
       </Properties>
     </Component>
@@ -162,7 +162,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="CPF:"/>
       </Properties>
     </Component>

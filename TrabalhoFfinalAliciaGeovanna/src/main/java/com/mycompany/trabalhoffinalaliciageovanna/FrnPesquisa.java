@@ -289,7 +289,7 @@ public class FrnPesquisa extends javax.swing.JDialog {
             jTextFieldDataNasc.setText(dataNascA);
         } 
         else{
-             JOptionPane.showMessageDialog(null, "Matrícula não cadastrada.", "Informação", JOptionPane.WARNING_MESSAGE);
+             JOptionPane.showMessageDialog(this, "Matrícula não cadastrada.", "Informação", JOptionPane.WARNING_MESSAGE);
 
         }
     }//GEN-LAST:event_jButtonPesquisarActionPerformed

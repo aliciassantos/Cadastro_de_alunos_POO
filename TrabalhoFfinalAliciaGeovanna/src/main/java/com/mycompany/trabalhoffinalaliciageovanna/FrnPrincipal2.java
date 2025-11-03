@@ -15,12 +15,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import com.opencsv.CSVWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 
-/**
- *
- * @author DTIC
- */
 public class FrnPrincipal2 extends javax.swing.JFrame {
 
     List<Aluno> listaAlunos = new ArrayList<>();
@@ -68,27 +67,27 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 255, 153));
 
         matricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        matricula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        matricula.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         matricula.setText("Matrícula:");
 
         nome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        nome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nome.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nome.setText("Nome:");
 
         datanasc.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        datanasc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        datanasc.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         datanasc.setText("Data nascimento:");
 
         idade.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        idade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        idade.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         idade.setText("Idade:");
 
         telefone.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        telefone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        telefone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         telefone.setText("Telefone:");
 
         cpf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cpf.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cpf.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         cpf.setText("CPF:");
 
         try {
@@ -217,24 +216,6 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(idade)
-                    .addComponent(telefone)
-                    .addComponent(cpf)
-                    .addComponent(matricula)
-                    .addComponent(nome)
-                    .addComponent(datanasc))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(9, Short.MAX_VALUE)
                 .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,6 +230,24 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(datanasc)
+                    .addComponent(idade)
+                    .addComponent(telefone)
+                    .addComponent(cpf)
+                    .addComponent(matricula)
+                    .addComponent(nome))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,7 +260,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
                     .addComponent(jButtonInserir)
                     .addComponent(jButtonListar)
                     .addComponent(jButtonExibir))
-                .addGap(34, 34, 34)
+                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(matricula))
@@ -285,7 +284,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idade))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         pack();
@@ -294,7 +293,29 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
-
+    
+    private boolean salvarCSV (Aluno a){
+        String nomeArq = "dados_Aluno.csv";
+        List<String[]> dadosAluno = new ArrayList<>();
+        
+        SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/yyyy");
+        String nascStr = sDdateFormate.format(a.getDataNasc());
+        
+        dadosAluno.add(new String[]{a.getMatricula() + "," + a.getNome() + "," + a.getIdade() + "," + nascStr + "," + a.getTelefone() + "," + a.getCPF()});
+                   
+        try (FileWriter writer = new FileWriter(nomeArq); 
+             CSVWriter csvWriter = new CSVWriter(writer)) 
+            {
+            csvWriter.writeAll(dadosAluno);
+            return true;
+        }
+        catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Erro ao escrever no arquivo CSV", "Erro", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }      
+    }
+    
+    
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         Aluno aluno = new Aluno();
         SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/yyyy");
@@ -341,8 +362,8 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         
          if (!alunoComMatriculaEstaNaLista(listaAlunos, aluno.getMatricula())) {  // Passa a matrícula como parâmetro (veja Problema 4)
             listaAlunos.add(aluno);
+            salvarCSV(aluno);
             JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
-            // TODO: Implementar salvamento em CSV aqui, se necessário
         }
         
         // Limpar os campos depois de salvar 
@@ -520,7 +541,7 @@ add(List nameList)   //adiciona ao final da lista
             
             if(idadeAluno > maiorIdade){
                 maiorIdade = idadeAluno;
-            }
+            }          
         }
         
         //transforma as idades em strings para exibição
