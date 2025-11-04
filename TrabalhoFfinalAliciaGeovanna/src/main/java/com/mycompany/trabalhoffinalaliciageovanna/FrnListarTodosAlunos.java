@@ -133,7 +133,6 @@ public class FrnListarTodosAlunos extends javax.swing.JDialog {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

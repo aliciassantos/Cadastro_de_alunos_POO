@@ -27,7 +27,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="9" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jButtonSalvar" min="-2" pref="80" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonPesquisar" min="-2" max="-2" attributes="0"/>
@@ -60,7 +60,7 @@
                   <Component id="jFormattedTextFieldCPF" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
                   <Component id="jTextFieldMatricula" alignment="2" min="-2" pref="159" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="259" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,7 +76,7 @@
                   <Component id="jButtonListar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonExibir" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextFieldMatricula" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="matricula" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -106,7 +106,7 @@
                   <Component id="jTextFieldIdade" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="idade" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="87" max="32767" attributes="0"/>
+              <EmptySpace pref="119" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -171,7 +171,7 @@
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="##/##/####" subtype="-1" type="5"/>
         </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <Events>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFormattedTextFieldDataNascFocusLost"/>
@@ -183,7 +183,7 @@
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="###.###.###-##" subtype="-1" type="5"/>
         </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldCPFActionPerformed"/>
@@ -191,7 +191,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldMatricula">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldMatriculaActionPerformed"/>
@@ -199,7 +199,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldIdade">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldIdadeActionPerformed"/>
@@ -207,7 +207,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNome">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNomeActionPerformed"/>
@@ -218,7 +218,7 @@
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="(##) #####-####" subtype="-1" type="5"/>
         </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldTelefoneActionPerformed"/>

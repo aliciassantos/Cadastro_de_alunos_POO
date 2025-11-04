@@ -50,12 +50,12 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="matricula" min="-2" max="-2" attributes="0"/>
-                  <Component id="matricula1" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="matricula3" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="matricula4" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="matricula2" alignment="1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="matricula" alignment="1" max="32767" attributes="0"/>
+                  <Component id="matricula1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="matricula3" max="32767" attributes="0"/>
+                  <Component id="matricula4" alignment="1" max="32767" attributes="0"/>
+                  <Component id="matricula2" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -144,6 +144,7 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="jTextFieldMatriculaA">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[64, 23]"/>
         </Property>
@@ -158,6 +159,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Insira a matr&#xed;cula:"/>
       </Properties>
     </Component>
@@ -166,6 +168,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
     </Component>
@@ -174,6 +177,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Data nascimento:"/>
       </Properties>
     </Component>
@@ -182,6 +186,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="CPF:"/>
       </Properties>
     </Component>
@@ -190,6 +195,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Telefone:"/>
       </Properties>
     </Component>
@@ -206,6 +212,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNome">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[64, 23]"/>
         </Property>
@@ -224,6 +231,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldTelefone">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[64, 23]"/>
         </Property>
@@ -234,6 +242,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldDataNasc">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[64, 23]"/>
         </Property>
@@ -244,6 +253,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldCPF">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[64, 23]"/>
         </Property>

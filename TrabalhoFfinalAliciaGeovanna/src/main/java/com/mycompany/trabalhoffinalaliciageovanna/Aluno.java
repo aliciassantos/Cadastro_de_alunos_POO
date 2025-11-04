@@ -87,4 +87,15 @@ public class Aluno implements Serializable {
         this.idade = idade;
     }
    
+    public Aluno (String matricula, String nome, int idade, Date dataNasc, String telefone, String cpf){
+        this.matricula = matricula;
+        this.nome = nome;
+        this.idade = idade;
+        this.dataNasc = dataNasc;
+        this.telefone = telefone;
+        this.CPF = cpf;
+    }
+    
+     public Aluno(){
+     }
 }

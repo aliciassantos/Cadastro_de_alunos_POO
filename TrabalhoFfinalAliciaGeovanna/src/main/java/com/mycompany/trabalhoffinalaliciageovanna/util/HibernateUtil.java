@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.trabalhoffinalaliciageovanna;
+package com.mycompany.trabalhoffinalaliciageovanna.util;
 import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 /**
@@ -11,24 +12,26 @@ import org.hibernate.cfg.Configuration;
  * @author geova
  */
 public class HibernateUtil {
+
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
     private static SessionFactory buildSessionFactory() {
         try {
-            // O .configure() procura automaticamente o arquivo hibernate.cfg.xml que criei
+            // Cria a SessionFactory a partir do hibernate.cfg.xml
             return new Configuration().configure().buildSessionFactory();
-        } catch (HibernateException ex) {
-            System.err.println("Erro na criação da SessionFactory na inicialização. " + ex);
+        } catch (Throwable ex) {
+            // Log do erro (log4j, slf4j, etc.)
+            System.err.println("Falha na criação da SessionFactory inicial: " + ex);
             throw new ExceptionInInitializerError(ex);
         }
     }
-    // Método para fornecer a SessionFactory para outras classes
+
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
 
-    // Método para fechar os recursos do Hibernate quando a aplicação for encerrada
-    public static void shutdown() {
-        getSessionFactory().close();
+    // Método para obter uma nova Session
+    public static Session openSession() {
+        return sessionFactory.openSession();
     }
 }

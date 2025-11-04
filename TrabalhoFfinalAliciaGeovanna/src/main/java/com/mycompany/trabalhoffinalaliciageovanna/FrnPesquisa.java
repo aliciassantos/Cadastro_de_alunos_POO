@@ -66,6 +66,7 @@ public class FrnPesquisa extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(518, 350));
 
+        jTextFieldMatriculaA.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextFieldMatriculaA.setMinimumSize(new java.awt.Dimension(64, 23));
         jTextFieldMatriculaA.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -79,24 +80,30 @@ public class FrnPesquisa extends javax.swing.JDialog {
         });
 
         matricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        matricula.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         matricula.setText("Insira a matrícula:");
 
         matricula1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        matricula1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         matricula1.setText("Nome:");
 
         matricula2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        matricula2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         matricula2.setText("Data nascimento:");
 
         matricula3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        matricula3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         matricula3.setText("CPF:");
 
         matricula4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        matricula4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         matricula4.setText("Telefone:");
 
         matricula5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         matricula5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         matricula5.setText("Quantidade de alunos:");
 
+        jTextFieldNome.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextFieldNome.setMinimumSize(new java.awt.Dimension(64, 23));
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +118,7 @@ public class FrnPesquisa extends javax.swing.JDialog {
             }
         });
 
+        jTextFieldTelefone.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextFieldTelefone.setMinimumSize(new java.awt.Dimension(64, 23));
         jTextFieldTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +126,7 @@ public class FrnPesquisa extends javax.swing.JDialog {
             }
         });
 
+        jTextFieldDataNasc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextFieldDataNasc.setMinimumSize(new java.awt.Dimension(64, 23));
         jTextFieldDataNasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +134,7 @@ public class FrnPesquisa extends javax.swing.JDialog {
             }
         });
 
+        jTextFieldCPF.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextFieldCPF.setMinimumSize(new java.awt.Dimension(64, 23));
         jTextFieldCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,12 +161,12 @@ public class FrnPesquisa extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(matricula)
-                    .addComponent(matricula1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(matricula3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(matricula4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(matricula2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(matricula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(matricula1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(matricula3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(matricula4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(matricula2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

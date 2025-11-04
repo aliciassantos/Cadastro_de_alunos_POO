@@ -4,6 +4,7 @@
  */
 package com.mycompany.trabalhoffinalaliciageovanna;
 
+import com.opencsv.CSVReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -16,14 +17,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import com.opencsv.CSVWriter;
+import com.opencsv.exceptions.CsvException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.util.stream.Stream;
 
 
 public class FrnPrincipal2 extends javax.swing.JFrame {
-
-    List<Aluno> listaAlunos = new ArrayList<>();
-
+     List <Aluno> listaAlunos = FrnPrincipal2.lerCSV();
     /**
      *
      * Creates new form FrnPrincipal2
@@ -95,7 +99,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldDataNasc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFormattedTextFieldDataNasc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jFormattedTextFieldDataNasc.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jFormattedTextFieldDataNascFocusLost(evt);
@@ -112,28 +116,28 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldCPF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFormattedTextFieldCPF.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jFormattedTextFieldCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextFieldCPFActionPerformed(evt);
             }
         });
 
-        jTextFieldMatricula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldMatricula.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextFieldMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMatriculaActionPerformed(evt);
             }
         });
 
-        jTextFieldIdade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldIdade.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextFieldIdade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldIdadeActionPerformed(evt);
             }
         });
 
-        jTextFieldNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldNome.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeActionPerformed(evt);
@@ -145,7 +149,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldTelefone.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFormattedTextFieldTelefone.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jFormattedTextFieldTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextFieldTelefoneActionPerformed(evt);
@@ -217,7 +221,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonPesquisar)
@@ -247,7 +251,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
                     .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +264,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
                     .addComponent(jButtonInserir)
                     .addComponent(jButtonListar)
                     .addComponent(jButtonExibir))
-                .addGap(62, 62, 62)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(matricula))
@@ -284,7 +288,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idade))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         pack();
@@ -294,15 +298,25 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
     
-    private boolean salvarCSV (Aluno a){
-        String nomeArq = "dados_Aluno.csv";
+    
+    private static final String nomeArq = "dados_Aluno.csv";
+    private static final SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/yyyy");
+    
+    private boolean salvarCSV (List<Aluno> listaAlunos){
         List<String[]> dadosAluno = new ArrayList<>();
-        
-        SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/yyyy");
-        String nascStr = sDdateFormate.format(a.getDataNasc());
-        
-        dadosAluno.add(new String[]{a.getMatricula() + "," + a.getNome() + "," + a.getIdade() + "," + nascStr + "," + a.getTelefone() + "," + a.getCPF()});
-                   
+                  
+        for (Aluno a : listaAlunos){
+            String nascStr = sDdateFormate.format(a.getDataNasc());
+            
+            dadosAluno.add(new String[]{
+                a.getMatricula(), 
+                a.getNome(), 
+                String.valueOf(a.getIdade()), // Converte int para String
+                nascStr, 
+                a.getTelefone(), 
+                a.getCPF()
+            });
+        }                   
         try (FileWriter writer = new FileWriter(nomeArq); 
              CSVWriter csvWriter = new CSVWriter(writer)) 
             {
@@ -314,7 +328,48 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             return false;
         }      
     }
-    
+     public static List<Aluno> lerCSV(){
+         List<Aluno> listaAlunos = new ArrayList<>();
+         
+         try (FileReader reader = new FileReader(nomeArq);CSVReader csvReader = new CSVReader(reader)) {
+            List<String[]> todasAsLinhas = csvReader.readAll();
+                     
+            // Pula o cabeçalho
+            if (!todasAsLinhas.isEmpty()) {
+                todasAsLinhas.remove(0); 
+            }
+            
+            for (String[] campos : todasAsLinhas) {
+                
+                // Validação básica para garantir que todos os campos estão presentes
+                if (campos.length < 6) continue; 
+                
+                try {
+                    // Conversão dos campos de String para seus respectivos tipos Java
+                    String matricula = campos[0];
+                    String nome = campos[1];
+                    int idade = Integer.parseInt(campos[2]);
+                    Date dataNasc = sDdateFormate.parse(campos[3]);
+                    String telefone = campos[4];
+                    String cpf = campos[5];
+                    
+                    // Instancia e adiciona o novo objeto Aluno à lista
+                    listaAlunos.add(new Aluno(matricula, nome, idade, dataNasc, telefone, cpf));
+                    
+                } catch (NumberFormatException | ParseException e) {
+                    System.err.println("Erro ao converter campo em uma linha: " + String.join(",", campos));
+                    e.printStackTrace();
+                    // Continua para a próxima linha
+                }
+            } 
+         } catch (IOException | CsvException e) {
+            // Este erro geralmente indica que o arquivo não existe ou está inacessível
+            System.err.println("Erro ao ler o arquivo CSV. Retornando lista vazia.");
+            // e.printStackTrace(); // Descomente para debug
+            return Collections.emptyList(); // Retorna lista vazia em caso de falha de I/O
+        }
+        return listaAlunos;
+     }
     
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         Aluno aluno = new Aluno();
@@ -362,7 +417,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         
          if (!alunoComMatriculaEstaNaLista(listaAlunos, aluno.getMatricula())) {  // Passa a matrícula como parâmetro (veja Problema 4)
             listaAlunos.add(aluno);
-            salvarCSV(aluno);
+            salvarCSV(listaAlunos);
             JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
         }
         
@@ -482,6 +537,7 @@ add(List nameList)   //adiciona ao final da lista
 
             if (!alunoComMatriculaEstaNaLista(listaAlunos, aluno.getMatricula())) {  // Passa a matrícula como parâmetro (veja Problema 4)
                 listaAlunos.add(posicao, aluno);
+                salvarCSV(listaAlunos);
                 JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
                 // TODO: Implementar salvamento em CSV aqui, se necessário
             }
@@ -596,7 +652,7 @@ add(List nameList)   //adiciona ao final da lista
     private void jButtonExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExibirActionPerformed
         // TODO add your handling code here:
         FrnListarTodosAlunos flta = new FrnListarTodosAlunos(this, true, this.listaAlunos);
-        flta.setVisible(true); 
+        flta.setVisible(true);    
     }//GEN-LAST:event_jButtonExibirActionPerformed
 
     /**
@@ -608,7 +664,9 @@ add(List nameList)   //adiciona ao final da lista
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+        
+       
+        try {           
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
