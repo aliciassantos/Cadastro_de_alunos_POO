@@ -4,7 +4,9 @@
  */
 package com.mycompany.trabalhoffinalaliciageovanna;
 
+import static com.mycompany.trabalhoffinalaliciageovanna.FrnPrincipal2.lerCSV;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.swing.JOptionPane;
@@ -15,6 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class FrnListarTodosAlunos extends javax.swing.JDialog {
     private List<Aluno> listaAlunos;
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrnListarTodosAlunos.class.getName());
 
     /**
@@ -39,37 +42,65 @@ public class FrnListarTodosAlunos extends javax.swing.JDialog {
       // Classe que formata data
       SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/yyyy");
       
-        if (this.listaAlunos.isEmpty()) {
-            sb.append("A lista de alunos está vazia.");
-        } else {
-            for (Aluno aluno : this.listaAlunos) {
-                String dataNascimentoFormatada;
-                try {
-                    // Formatar a data se o objeto não for nulo
-                    if (aluno.getDataNasc() != null) {
-                        dataNascimentoFormatada = sDdateFormate.format(aluno.getDataNasc());
-                    } else {
-                        dataNascimentoFormatada = "Data não informada";
-                    }
-                } catch (Exception e) {
-                     dataNascimentoFormatada = "Data inválida";
-                }
-                // Formatação para que todas as informações de cada aluno
-                sb.append("======================================================================\n");
-                sb.append("Matrícula: ").append(aluno.getMatricula()).append("\n");
-                sb.append("Nome: ").append(aluno.getNome()).append("\n");
-                sb.append("Data de Nascimento: ").append(dataNascimentoFormatada).append("\n"); 
-                sb.append("CPF: ").append(aluno.getCPF()).append("\n");
-                sb.append("Telefone: ").append(aluno.getTelefone()).append("\n\n");
-            }
-        }
+      List <Aluno> lerAlunos = new ArrayList<>();
+      lerAlunos = lerCSV();
+        System.out.println("tamanho da lista" + lerAlunos.size());
+//        if (this.listaAlunos.isEmpty()) {
+//            sb.append("A lista de alunos está vazia.");
+//        } else {
+//            for (Aluno aluno : this.listaAlunos) {
+//                String dataNascimentoFormatada;
+//                try {
+//                    // Formatar a data se o objeto não for nulo
+//                    if (aluno.getDataNasc() != null) {
+//                        dataNascimentoFormatada = sDdateFormate.format(aluno.getDataNasc());
+//                    } else {
+//                        dataNascimentoFormatada = "Data não informada";
+//                    }
+//                } catch (Exception e) {
+//                     dataNascimentoFormatada = "Data inválida";
+//                }
+//                // Formatação para que todas as informações de cada aluno
+//                sb.append("======================================================================\n");
+//                sb.append("Matrícula: ").append(aluno.getMatricula()).append("\n");
+//                sb.append("Nome: ").append(aluno.getNome()).append("\n");
+//                sb.append("Data de Nascimento: ").append(dataNascimentoFormatada).append("\n"); 
+//                sb.append("CPF: ").append(aluno.getCPF()).append("\n");
+//                sb.append("Telefone: ").append(aluno.getTelefone()).append("\n\n");
+//            }
+//        }
+        Aluno a;
+         for (int i = 0; i < lerAlunos.size(); i++){
+            //pega os dados do aluno com indice i
+            a = lerAlunos.get(i);
+            String dataNascimentoFormatada;
+            
+             try {
+                 // Formatar a data se o objeto não for nulo
+                 if (a.getDataNasc() != null) {
+                     dataNascimentoFormatada = sDdateFormate.format(a.getDataNasc());
+                 } else {
+                     dataNascimentoFormatada = "Data não informada";
+                 }
+             } catch (Exception e) {
+                 dataNascimentoFormatada = "Data inválida";
+             }
+             //exibe os dados do aluno
+             sb.append("======================================================================\n");
+             sb.append("Matrícula: ").append(a.getMatricula()).append("\n");
+             sb.append("Nome: ").append(a.getNome()).append("\n");
+             sb.append("Data de Nascimento: ").append(dataNascimentoFormatada).append("\n");
+             sb.append("CPF: ").append(a.getCPF()).append("\n");
+             sb.append("Telefone: ").append(a.getTelefone()).append("\n\n");
 
-        // Inserir a string formatada no JTextArea
-        jTextAreaAlunos.setText(sb.toString());
-        // Garante que a barra de rolagem comece no topo
-        jTextAreaAlunos.setCaretPosition(0); 
-        // Garantir que não seja modificado ou apagado
-        jTextAreaAlunos.setEditable(false);
+        
+             // Garante que a barra de rolagem comece no topo
+             jTextAreaAlunos.setCaretPosition(0);
+             // Garantir que não seja modificado ou apagado
+             jTextAreaAlunos.setEditable(false);           
+        }
+              // Inserir a string formatada no JTextArea
+             jTextAreaAlunos.setText(sb.toString());
     }
     /**
      * This method is called from within the constructor to initialize the form.
