@@ -11,8 +11,8 @@ import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 /**
  *
  * @author DTIC
@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
 // mostrar que Aluno é uma entidade
 @Entity 
 // Nomeia tabela
-@Table(name = "Aluno")
+@Table(name = "aluno")
 public class Aluno implements Serializable {
      //Declaração das variáveis dos alunos
     // Definir a chave primária 
@@ -30,7 +30,7 @@ public class Aluno implements Serializable {
     @Column(name = "nome",nullable = false)
     private String nome;
     @Column(name = "cpf",unique = true, nullable = false)
-    private String CPF;
+    private String cpf;
     @Column(name = "telefone")
     private String telefone;
     @Temporal(TemporalType.DATE)
@@ -64,11 +64,11 @@ public class Aluno implements Serializable {
     }
 
     public String getCPF() {
-        return CPF;
+        return cpf;
     }
 
     public void setCPF(String CPF) {
-        this.CPF = CPF;
+        this.cpf = CPF;
     }
 
     public String getTelefone() {
@@ -93,7 +93,7 @@ public class Aluno implements Serializable {
         this.idade = idade;
         this.dataNasc = dataNasc;
         this.telefone = telefone;
-        this.CPF = cpf;
+        this.cpf = cpf;
     }
     
      public Aluno(){

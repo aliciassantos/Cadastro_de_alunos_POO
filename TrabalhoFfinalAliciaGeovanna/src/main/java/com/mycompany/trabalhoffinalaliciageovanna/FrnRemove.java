@@ -14,16 +14,18 @@ import javax.swing.JOptionPane;
  */
 public class FrnRemove extends javax.swing.JDialog {
     private List<Aluno> listaAlunos;
+    private AlunoDAO alunoDAO;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrnRemove.class.getName());
 
     /**
      * Creates new form FrnRemove
      */
-    public FrnRemove(java.awt.Frame parent, boolean modal,List<Aluno> listaRecebida) {
+    public FrnRemove(java.awt.Frame parent, boolean modal,List<Aluno> listaRecebida, AlunoDAO alunoDAO) {
         super(parent, modal);
         initComponents();
         //pega a lista de alunos do FrnPrincipal2 e dimensiona a tela
         this.listaAlunos = listaRecebida;
+        this.alunoDAO = alunoDAO;
         this.setSize(540, 380);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
@@ -193,8 +195,21 @@ public class FrnRemove extends javax.swing.JDialog {
     private void jButtonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverActionPerformed
         // TODO add your handling code here:
         String matricula = jFormattedTextFieldMatriculaRemover.getText();
+        if (matricula.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite uma matrícula.");
+            return;
+        }
         boolean removed = listaAlunos.removeIf(a -> a.getMatricula().equals(matricula));
-        if (removed) {
+        
+
+    // 1) Tenta remover do banco
+    boolean removidoBanco = false;
+    try {
+        removidoBanco = alunoDAO.excluirHibernate(matricula);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Erro ao remover do banco: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+        if (removed || removidoBanco) {
             JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
             jFormattedTextFieldMatriculaRemover.setText("");
             jFormattedTextFieldNomeRemover.setText("");
@@ -202,6 +217,7 @@ public class FrnRemove extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(this, "Aluno não encontrado.", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
+        
     }//GEN-LAST:event_jButtonRemoverActionPerformed
 
     /**

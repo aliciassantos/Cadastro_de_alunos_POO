@@ -17,14 +17,15 @@ import javax.swing.JOptionPane;
 public class FrnPesquisa extends javax.swing.JDialog {
 
     private List<Aluno> listaAlunos;
-
+    private AlunoDAO alunoDAO;
     //contrutor para usar a lista de alunos salva no FrnPrincipal2
-    public FrnPesquisa(java.awt.Frame parent, boolean modal, List<Aluno> listaRecebida) {
+    public FrnPesquisa(java.awt.Frame parent, boolean modal, List<Aluno> listaRecebida, AlunoDAO alunoDAO) {
         super(parent, modal);
         initComponents();
 
         //pega a lista de alunos do FrnPrincipal2 e dimensiona a tela
         this.listaAlunos = listaRecebida;
+        this.alunoDAO = alunoDAO;
         this.setSize(540, 380);
         this.setResizable(false);
         this.setLocationRelativeTo(null);

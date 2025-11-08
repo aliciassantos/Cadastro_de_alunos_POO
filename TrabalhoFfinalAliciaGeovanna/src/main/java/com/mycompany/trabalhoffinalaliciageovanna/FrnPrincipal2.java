@@ -27,8 +27,9 @@ import java.util.stream.Stream;
 
 
 public class FrnPrincipal2 extends javax.swing.JFrame {
-     List <Aluno> listaAlunos = FrnPrincipal2.lerCSV();
-    /**
+    List <Aluno> listaAlunos = FrnPrincipal2.lerCSV();
+    private AlunoDAO alunoDAO = new AlunoDAO();
+     /**
      *
      * Creates new form FrnPrincipal2
      */
@@ -378,7 +379,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             jFormattedTextFieldDataNasc.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "É necessário preencher todos os campos!", "Informação", JOptionPane.WARNING_MESSAGE);
             return;
-        } else {
+        } 
             //coleta a matrícula do aluno
             String matriculaA = jTextFieldMatricula.getText().trim();
             aluno.setMatricula(matriculaA);
@@ -388,6 +389,9 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             //coleta o CPF do aluno
             String cpfA = jFormattedTextFieldCPF.getText();
             aluno.setCPF(cpfA);
+            //coleta o telefone do aluno(opcional)
+            String telefoneA = jFormattedTextFieldTelefone.getText();
+            aluno.setTelefone(telefoneA);
             // Coleta a data de nascimento e calcula a idade para sincronizar no objeto Aluno
             try {
                 String dataNascA = jFormattedTextFieldDataNasc.getText();
@@ -406,16 +410,21 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Data de nascimento inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;  // Sai se houver erro de parsing
             }
-            //coleta o telefone do aluno(opcional)
-            String telefoneA = jFormattedTextFieldTelefone.getText();
-            aluno.setTelefone(telefoneA);
-        }
+
+        
         
          if (!alunoComMatriculaEstaNaLista(listaAlunos, aluno.getMatricula())) {  // Passa a matrícula como parâmetro (veja Problema 4)
             listaAlunos.add(aluno);
             salvarCSV(listaAlunos);
             JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
         }
+        // SALVA NO BANCO PELO HIBERNATE
+        if (!alunoDAO.existePorMatricula(aluno.getMatricula())) {
+            alunoDAO.salvarHibernate(aluno);
+        } else {
+            JOptionPane.showMessageDialog(null, "Esse aluno já existe no banco de dados!", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+
         
         // Limpar os campos depois de salvar 
         jTextFieldMatricula.setText("");
@@ -445,7 +454,7 @@ remove(Object o) //remove um elemento especificado
 add(List nameList)   //adiciona ao final da lista 
      */
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-        FrnPesquisa fp = new FrnPesquisa(this, true, this.listaAlunos);
+        FrnPesquisa fp = new FrnPesquisa(this, true, this.listaAlunos, alunoDAO);
         fp.setVisible(true); 
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
@@ -640,7 +649,7 @@ add(List nameList)   //adiciona ao final da lista
 
     private void jButtonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApagarActionPerformed
         // TODO add your handling code here:                                          
-        FrnRemove frm = new FrnRemove(this, true, this.listaAlunos);
+        FrnRemove frm = new FrnRemove(this, true, this.listaAlunos,this.alunoDAO);
         frm.setVisible(true);
 
     }//GEN-LAST:event_jButtonApagarActionPerformed
