@@ -14,8 +14,6 @@ import javax.swing.JOptionPane;
  */
 public class FrnRemove extends javax.swing.JDialog {
     private List<Aluno> listaAlunos;
-    AlunoDAO alunoDao = new AlunoDAO();
-
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrnRemove.class.getName());
 
     /**
@@ -37,8 +35,6 @@ public class FrnRemove extends javax.swing.JDialog {
     // Método de remoção por matrícula
     public List<Aluno> removerAlunoPorMatricula(List<Aluno> alunos, String matricula) {
         if (alunos != null && matricula != null && !matricula.isEmpty()) {
-                       
-            alunoDao.excluirHibernate(matricula);
             alunos.removeIf(a -> a.getMatricula().equals(matricula));
         }
         return alunos;
@@ -198,7 +194,6 @@ public class FrnRemove extends javax.swing.JDialog {
         // TODO add your handling code here:
         String matricula = jFormattedTextFieldMatriculaRemover.getText();
         boolean removed = listaAlunos.removeIf(a -> a.getMatricula().equals(matricula));
-        
         if (removed) {
             JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
             jFormattedTextFieldMatriculaRemover.setText("");

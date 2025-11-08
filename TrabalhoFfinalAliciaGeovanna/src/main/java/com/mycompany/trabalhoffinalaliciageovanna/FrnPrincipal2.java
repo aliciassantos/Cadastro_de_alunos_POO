@@ -28,7 +28,6 @@ import java.util.stream.Stream;
 
 public class FrnPrincipal2 extends javax.swing.JFrame {
      List <Aluno> listaAlunos = FrnPrincipal2.lerCSV();
-     AlunoDAO alunoDao = new AlunoDAO();
     /**
      *
      * Creates new form FrnPrincipal2
@@ -419,7 +418,6 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
          if (!alunoComMatriculaEstaNaLista(listaAlunos, aluno.getMatricula())) {  // Passa a matrícula como parâmetro (veja Problema 4)
             listaAlunos.add(aluno);
             salvarCSV(listaAlunos);
-            alunoDao.salvarHibernate(aluno);
             JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
         }
         
@@ -538,10 +536,8 @@ add(List nameList)   //adiciona ao final da lista
             }
 
             if (!alunoComMatriculaEstaNaLista(listaAlunos, aluno.getMatricula())) {  // Passa a matrícula como parâmetro (veja Problema 4)
-                
                 listaAlunos.add(posicao, aluno);
                 salvarCSV(listaAlunos);
-                alunoDao.salvarHibernate(aluno);                
                 JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
                 // TODO: Implementar salvamento em CSV aqui, se necessário
             }
