@@ -334,10 +334,6 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
          try (FileReader reader = new FileReader(nomeArq);CSVReader csvReader = new CSVReader(reader)) {
             List<String[]> todasAsLinhas = csvReader.readAll();
                      
-            // Pula o cabeçalho
-            if (!todasAsLinhas.isEmpty()) {
-                todasAsLinhas.remove(0); 
-            }
             
             for (String[] campos : todasAsLinhas) {
                 
@@ -384,7 +380,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             return;
         } else {
             //coleta a matrícula do aluno
-            String matriculaA = jTextFieldMatricula.getText();
+            String matriculaA = jTextFieldMatricula.getText().trim();
             aluno.setMatricula(matriculaA);
             //coleta o nome do aluno
             String nomeA = jTextFieldNome.getText();

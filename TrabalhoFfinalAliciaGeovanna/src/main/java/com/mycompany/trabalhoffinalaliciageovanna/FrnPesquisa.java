@@ -3,35 +3,37 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.trabalhoffinalaliciageovanna;
+
 import java.text.SimpleDateFormat;
 import java.util.Optional;
 import java.util.*;
 import java.util.List;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author DTIC
  */
 public class FrnPesquisa extends javax.swing.JDialog {
 
-    
     private List<Aluno> listaAlunos;
-    
+
     //contrutor para usar a lista de alunos salva no FrnPrincipal2
     public FrnPesquisa(java.awt.Frame parent, boolean modal, List<Aluno> listaRecebida) {
         super(parent, modal);
         initComponents();
-        
+
         //pega a lista de alunos do FrnPrincipal2 e dimensiona a tela
         this.listaAlunos = listaRecebida;
         this.setSize(540, 380);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
     }
-    public FrnPesquisa(){
-    
+
+    public FrnPesquisa() {
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -235,7 +237,7 @@ public class FrnPesquisa extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
-        
+
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
     private void jTextFieldQtdAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldQtdAlunosActionPerformed
@@ -253,53 +255,53 @@ public class FrnPesquisa extends javax.swing.JDialog {
     private void jTextFieldCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCPFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCPFActionPerformed
-    
-    
+
     private Optional<Aluno> buscarAluno(String matricula) {
         return listaAlunos.stream()
-                //Filtra a lista, mantendo apenas o aluno cuja matrícula seja igual
-                .filter(Aluno -> Aluno.getMatricula().equals(matricula))
-                //Retorna o primeiro (e único, neste caso) elemento que corresponde ao filtro
-                .findFirst();
+        .filter(a -> a.getMatricula().equals(matricula))
+        .findFirst();
     }
-    
+
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-       String matricula = jTextFieldMatriculaA.getText();
-    
+
+        String matricula = jTextFieldMatriculaA.getText().trim();
+        jTextFieldNome.setText("");
+        jTextFieldCPF.setText("");
+        jTextFieldTelefone.setText("");
+        jTextFieldDataNasc.setText("");
         //impede a modificação dos dados da caixa de texto
         jTextFieldQtdAlunos.setEditable(false);
         jTextFieldNome.setEditable(false);
         jTextFieldCPF.setEditable(false);
         jTextFieldTelefone.setEditable(false);
         jTextFieldDataNasc.setEditable(false);
-        
+
         //Exibe a quantidade de alunos na lista
         String qtdAlunos = String.valueOf(listaAlunos.size());
         jTextFieldQtdAlunos.setText(qtdAlunos);
-             
+
         //busca o aluno com base na matricula inserida
         Optional<Aluno> procurandoAluno = buscarAluno(matricula);
-        
-        if (procurandoAluno.isPresent()){
+
+        if (procurandoAluno.isPresent()) {
             Aluno alunoEncontrado = procurandoAluno.get();
-            
+
             String nomeAluno = alunoEncontrado.getNome();
             jTextFieldNome.setText(nomeAluno);
-            
+
             String cpfAluno = alunoEncontrado.getCPF();
             jTextFieldCPF.setText(cpfAluno);
-            
+
             String TelefoneAluno = alunoEncontrado.getTelefone();
             jTextFieldTelefone.setText(TelefoneAluno);
-            
+
             Date dataAluno = alunoEncontrado.getDataNasc();
-            
+
             SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/YYYY");
             String dataNascA = sDdateFormate.format(dataAluno);
             jTextFieldDataNasc.setText(dataNascA);
-        } 
-        else{
-             JOptionPane.showMessageDialog(this, "Matrícula não cadastrada.", "Informação", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Matrícula não cadastrada.", "Informação", JOptionPane.WARNING_MESSAGE);
 
         }
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
