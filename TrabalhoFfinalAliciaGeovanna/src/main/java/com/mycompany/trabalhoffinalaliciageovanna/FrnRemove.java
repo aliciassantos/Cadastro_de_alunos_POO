@@ -208,7 +208,8 @@ public class FrnRemove extends javax.swing.JDialog {
         removidoBanco = alunoDAO.excluirHibernate(matricula);
     } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Erro ao remover do banco: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-    }
+    }   
+        System.out.println("foi removido da lista?" + removed);
         if (removed || removidoBanco) {
             JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
             jFormattedTextFieldMatriculaRemover.setText("");

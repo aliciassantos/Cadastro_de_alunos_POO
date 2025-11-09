@@ -38,6 +38,10 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         setResizable(false);
         setSize(540, 380);
         setLocationRelativeTo(null);
+        //não reverte o valor quando perder o foco dos campos
+        jFormattedTextFieldCPF.setFocusLostBehavior(jFormattedTextFieldCPF.PERSIST);
+        jFormattedTextFieldDataNasc.setFocusLostBehavior(jFormattedTextFieldDataNasc.PERSIST);
+        jFormattedTextFieldTelefone.setFocusLostBehavior(jFormattedTextFieldTelefone.PERSIST);
     }
 
     /**
@@ -305,7 +309,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
     
     private boolean salvarCSV (List<Aluno> listaAlunos){
         List<String[]> dadosAluno = new ArrayList<>();
-                  
+        //percorre a lista de alunos          
         for (Aluno a : listaAlunos){
             String nascStr = sDdateFormate.format(a.getDataNasc());
             
@@ -375,9 +379,9 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         //verifica se a matrícula do aluno foi preenchida
         if (jTextFieldMatricula.getText().trim().isEmpty()|| 
             jTextFieldNome.getText().trim().isEmpty() || 
-            jFormattedTextFieldCPF.getText().trim().isEmpty() ||
-            jFormattedTextFieldDataNasc.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "É necessário preencher todos os campos!", "Informação", JOptionPane.WARNING_MESSAGE);
+            jFormattedTextFieldCPF.getText().trim().length() < 14 ||
+            jFormattedTextFieldDataNasc.getText().trim().length() < 10) {
+            JOptionPane.showMessageDialog(null, "É necessário preencher todos os campos corretamente!", "Informação", JOptionPane.WARNING_MESSAGE);
             return;
         } 
             //coleta a matrícula do aluno
@@ -416,6 +420,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
          if (!alunoComMatriculaEstaNaLista(listaAlunos, aluno.getMatricula())) {  // Passa a matrícula como parâmetro (veja Problema 4)
             listaAlunos.add(aluno);
             salvarCSV(listaAlunos);
+            limparCampos();
             JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
         }
         // SALVA NO BANCO PELO HIBERNATE
@@ -426,6 +431,9 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         }
 
         
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
+   
+    private void limparCampos(){
         // Limpar os campos depois de salvar 
         jTextFieldMatricula.setText("");
         jTextFieldNome.setText("");
@@ -433,14 +441,28 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         jFormattedTextFieldTelefone.setValue(null);
         jFormattedTextFieldDataNasc.setValue(null);
         jTextFieldIdade.setText("");
-    }//GEN-LAST:event_jButtonSalvarActionPerformed
-   
+    }
     
+    //procura o cpf do aluno na lista de alunos
+    private boolean buscarCPFAluno(String cpf) {
+        boolean alunoExiste = listaAlunos.stream()
+                .filter(a -> a.getCPF().equals(cpf))
+                .findFirst().isPresent();    
+        //returna true se existe um cpf e false caso contrário
+        return alunoExiste;       
+    }
     
     private boolean alunoComMatriculaEstaNaLista(List<Aluno> listaAlunos, String matricula) {
+        String cpfA = jFormattedTextFieldCPF.getText();
+        
         for (Aluno aluno : listaAlunos) {
+            
             if (aluno.getMatricula().equals(matricula)) {
                 JOptionPane.showMessageDialog(null, "Já existe um aluno com a matrícula " + matricula + "!", "Informação", JOptionPane.ERROR_MESSAGE);
+                return true;
+            }
+            if (buscarCPFAluno(cpfA)){
+                JOptionPane.showMessageDialog(null, "Já existe um aluno com o CPF " + cpfA + "!", "Informação", JOptionPane.ERROR_MESSAGE);
                 return true;
             }
         }
