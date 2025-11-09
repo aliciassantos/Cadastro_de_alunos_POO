@@ -15,15 +15,21 @@ import javax.swing.JOptionPane;
 public class FrnRemove extends javax.swing.JDialog {
     private List<Aluno> listaAlunos;
     private AlunoDAO alunoDAO;
+    private FrnPrincipal2 frnPrin;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrnRemove.class.getName());
 
     /**
      * Creates new form FrnRemove
+     * @param parent
+     * @param modal
+     * @param listaRecebida
+     * @param alunoDAO
      */
     public FrnRemove(java.awt.Frame parent, boolean modal,List<Aluno> listaRecebida, AlunoDAO alunoDAO) {
         super(parent, modal);
         initComponents();
         //pega a lista de alunos do FrnPrincipal2 e dimensiona a tela
+        this.frnPrin = (FrnPrincipal2) parent;
         this.listaAlunos = listaRecebida;
         this.alunoDAO = alunoDAO;
         this.setSize(540, 380);
@@ -200,8 +206,7 @@ public class FrnRemove extends javax.swing.JDialog {
             return;
         }
         boolean removed = listaAlunos.removeIf(a -> a.getMatricula().equals(matricula));
-        
-
+           
     // 1) Tenta remover do banco
     boolean removidoBanco = false;
     try {
@@ -209,8 +214,8 @@ public class FrnRemove extends javax.swing.JDialog {
     } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Erro ao remover do banco: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
     }   
-        System.out.println("foi removido da lista?" + removed);
         if (removed || removidoBanco) {
+            frnPrin.salvarCSV(listaAlunos);
             JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
             jFormattedTextFieldMatriculaRemover.setText("");
             jFormattedTextFieldNomeRemover.setText("");

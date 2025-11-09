@@ -307,7 +307,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
     private static final String nomeArq = "dados_Aluno.csv";
     private static final SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/yyyy");
     
-    private boolean salvarCSV (List<Aluno> listaAlunos){
+    public boolean salvarCSV (List<Aluno> listaAlunos){
         List<String[]> dadosAluno = new ArrayList<>();
         //percorre a lista de alunos          
         for (Aluno a : listaAlunos){
