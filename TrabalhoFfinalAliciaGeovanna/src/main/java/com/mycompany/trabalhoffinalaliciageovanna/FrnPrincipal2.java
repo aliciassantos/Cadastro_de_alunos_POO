@@ -18,12 +18,14 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvException;
+import java.awt.Color;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.stream.Stream;
+import javax.swing.JPanel;
 
 
 public class FrnPrincipal2 extends javax.swing.JFrame {
@@ -38,6 +40,9 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         setResizable(false);
         setSize(540, 380);
         setLocationRelativeTo(null);
+        Color cor = new Color(238, 213, 210);
+        JPanel background = (JPanel) this.getContentPane();
+        background.setBackground(cor);
         //não reverte o valor quando perder o foco dos campos
         jFormattedTextFieldCPF.setFocusLostBehavior(jFormattedTextFieldCPF.PERSIST);
         jFormattedTextFieldDataNasc.setFocusLostBehavior(jFormattedTextFieldDataNasc.PERSIST);
@@ -75,28 +80,40 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 153));
 
+        matricula.setBackground(new java.awt.Color(255, 255, 255));
         matricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        matricula.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        matricula.setForeground(new java.awt.Color(0, 0, 0));
+        matricula.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         matricula.setText("Matrícula:");
 
+        nome.setBackground(new java.awt.Color(255, 255, 255));
         nome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        nome.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        nome.setForeground(new java.awt.Color(0, 0, 0));
+        nome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         nome.setText("Nome:");
 
+        datanasc.setBackground(new java.awt.Color(255, 255, 255));
         datanasc.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        datanasc.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        datanasc.setForeground(new java.awt.Color(0, 0, 0));
+        datanasc.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         datanasc.setText("Data nascimento:");
 
+        idade.setBackground(new java.awt.Color(255, 255, 255));
         idade.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        idade.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        idade.setForeground(new java.awt.Color(0, 0, 0));
+        idade.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         idade.setText("Idade:");
 
+        telefone.setBackground(new java.awt.Color(255, 255, 255));
         telefone.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        telefone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        telefone.setForeground(new java.awt.Color(0, 0, 0));
+        telefone.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         telefone.setText("Telefone:");
 
+        cpf.setBackground(new java.awt.Color(255, 255, 255));
         cpf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cpf.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        cpf.setForeground(new java.awt.Color(0, 0, 0));
+        cpf.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         cpf.setText("CPF:");
 
         try {
@@ -161,7 +178,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             }
         });
 
-        jButtonPesquisar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonPesquisar.setBackground(new java.awt.Color(171, 130, 255));
         jButtonPesquisar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonPesquisar.setText("Pesquisar");
@@ -171,7 +188,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             }
         });
 
-        jButtonExibir.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonExibir.setBackground(new java.awt.Color(171, 130, 255));
         jButtonExibir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonExibir.setForeground(new java.awt.Color(255, 255, 255));
         jButtonExibir.setText("Exibir");
@@ -181,7 +198,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             }
         });
 
-        jButtonInserir.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonInserir.setBackground(new java.awt.Color(171, 130, 255));
         jButtonInserir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonInserir.setForeground(new java.awt.Color(255, 255, 255));
         jButtonInserir.setText("Inserir");
@@ -191,7 +208,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             }
         });
 
-        jButtonListar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonListar.setBackground(new java.awt.Color(171, 130, 255));
         jButtonListar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonListar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonListar.setText("Listar ");
@@ -201,7 +218,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             }
         });
 
-        jButtonApagar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonApagar.setBackground(new java.awt.Color(171, 130, 255));
         jButtonApagar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonApagar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonApagar.setText("Apagar");
@@ -211,7 +228,7 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             }
         });
 
-        jButtonSalvar.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonSalvar.setBackground(new java.awt.Color(171, 130, 255));
         jButtonSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonSalvar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSalvar.setText("Salvar");
@@ -225,38 +242,38 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonPesquisar)
+                .addComponent(jButtonPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonInserir)
+                .addComponent(jButtonInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonListar)
+                .addComponent(jButtonListar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addComponent(jButtonExibir)
+                .addGap(32, 32, 32))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(datanasc)
-                    .addComponent(idade)
-                    .addComponent(telefone)
-                    .addComponent(cpf)
-                    .addComponent(matricula)
-                    .addComponent(nome))
+                    .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(datanasc, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(259, Short.MAX_VALUE))
+                    .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,28 +288,28 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
                     .addComponent(jButtonExibir))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(matricula))
+                    .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nome))
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cpf))
+                    .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(telefone))
+                    .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(datanasc))
+                    .addComponent(jFormattedTextFieldDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(datanasc, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idade))
+                    .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(119, Short.MAX_VALUE))
         );
 
@@ -565,17 +582,14 @@ add(List nameList)   //adiciona ao final da lista
             if (!alunoComMatriculaEstaNaLista(listaAlunos, aluno.getMatricula())) {  // Passa a matrícula como parâmetro (veja Problema 4)
                 listaAlunos.add(posicao, aluno);
                 salvarCSV(listaAlunos);
+                // Limpar os campos depois de salvar 
+                limparCampos();
                 JOptionPane.showMessageDialog(null, "O aluno foi adicionado na lista de alunos com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
                 // TODO: Implementar salvamento em CSV aqui, se necessário
             }
 
             // Limpar os campos depois de salvar 
-            jTextFieldMatricula.setText("");
-            jTextFieldNome.setText("");
-            jFormattedTextFieldCPF.setValue(null);
-            jFormattedTextFieldTelefone.setValue(null);
-            jFormattedTextFieldDataNasc.setValue(null);
-            jTextFieldIdade.setText("");
+            limparCampos();
         }
         
                                        
