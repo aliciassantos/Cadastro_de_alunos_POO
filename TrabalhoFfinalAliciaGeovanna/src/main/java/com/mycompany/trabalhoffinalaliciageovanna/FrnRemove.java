@@ -10,10 +10,6 @@ import java.util.Optional;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author geova
- */
 public class FrnRemove extends javax.swing.JDialog {
     private List<Aluno> listaAlunos;
     private AlunoDAO alunoDAO;
@@ -103,9 +99,10 @@ public class FrnRemove extends javax.swing.JDialog {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Remoção de Aluno");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jButtonRemover.setBackground(new java.awt.Color(205, 51, 51));
         jButtonRemover.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -157,8 +154,8 @@ public class FrnRemove extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel4)
-                .addGap(50, 50, 50)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextFieldMatriculaRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,7 +213,7 @@ public class FrnRemove extends javax.swing.JDialog {
         }
         boolean removed = listaAlunos.removeIf(a -> a.getMatricula().equals(matricula));
            
-    // 1) Tenta remover do banco
+    // Tenta remover do banco
     boolean removidoBanco = false;
     try {
         removidoBanco = alunoDAO.excluirHibernate(matricula);
@@ -235,9 +232,6 @@ public class FrnRemove extends javax.swing.JDialog {
         
     }//GEN-LAST:event_jButtonRemoverActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

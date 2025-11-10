@@ -320,7 +320,6 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
     
-    
     private static final String nomeArq = "dados_Aluno.csv";
     private static final SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/yyyy");
     
@@ -340,9 +339,9 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
             });
         }                   
         try (FileWriter writer = new FileWriter(nomeArq); 
-             CSVWriter csvWriter = new CSVWriter(writer)) 
+             CSVWriter csvWriter = new CSVWriter(writer)) //FileReader lê o arquivo, e CSVReader é usado para analisar o conteúdo como CSV
             {
-            csvWriter.writeAll(dadosAluno);
+            csvWriter.writeAll(dadosAluno);// escreve todas aslinhas de uma vez só no arq CSV
             return true;
         }
         catch (IOException e) {
@@ -353,8 +352,8 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
      public static List<Aluno> lerCSV(){
          List<Aluno> listaAlunos = new ArrayList<>();
          
-         try (FileReader reader = new FileReader(nomeArq);CSVReader csvReader = new CSVReader(reader)) {
-            List<String[]> todasAsLinhas = csvReader.readAll();
+         try (FileReader reader = new FileReader(nomeArq);CSVReader csvReader = new CSVReader(reader)) {//FileWriter escreve bytes para o arquivo e o CSVWriter é usado para formatar os dados
+            List<String[]> todasAsLinhas = csvReader.readAll();// ler todo o conteúdo do arq CSV e armazena em uma lista de arrays de String
                      
             
             for (String[] campos : todasAsLinhas) {
@@ -377,13 +376,11 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
                 } catch (NumberFormatException | ParseException e) {
                     System.err.println("Erro ao converter campo em uma linha: " + String.join(",", campos));
                     e.printStackTrace();
-                    // Continua para a próxima linha
                 }
             } 
          } catch (IOException | CsvException e) {
-            // Este erro geralmente indica que o arquivo não existe ou está inacessível
+            // Tratamento de erro - indica que o arquivo não existe ou está inacessível
             System.err.println("Erro ao ler o arquivo CSV. Retornando lista vazia.");
-            // e.printStackTrace(); // Descomente para debug
             return Collections.emptyList(); // Retorna lista vazia em caso de falha de I/O
         }
         return listaAlunos;
@@ -432,8 +429,6 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
                 return;  // Sai se houver erro de parsing
             }
 
-        
-        
          if (!alunoComMatriculaEstaNaLista(listaAlunos, aluno.getMatricula())) {  // Passa a matrícula como parâmetro (veja Problema 4)
             listaAlunos.add(aluno);
             salvarCSV(listaAlunos);
@@ -446,8 +441,6 @@ public class FrnPrincipal2 extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Esse aluno já existe no banco de dados!", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
-
-        
     }//GEN-LAST:event_jButtonSalvarActionPerformed
    
     private void limparCampos(){
@@ -646,8 +639,7 @@ add(List nameList)   //adiciona ao final da lista
         String strMaiorId = String.valueOf(maiorIdade);
         
         //painel de exibição da mensagem
-        JOptionPane.showMessageDialog(null, "O aluno mais novo possui " + strMenorId + " anos e o mais velho possui " + strMaiorId, "Análise de idade", JOptionPane.INFORMATION_MESSAGE);
-        
+        JOptionPane.showMessageDialog(null, "O aluno mais novo possui " + strMenorId + " anos e o mais velho possui " + strMaiorId, "Análise de idade", JOptionPane.INFORMATION_MESSAGE);       
     }//GEN-LAST:event_jButtonListarActionPerformed
 
     private void jFormattedTextFieldDataNascFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDataNascFocusLost

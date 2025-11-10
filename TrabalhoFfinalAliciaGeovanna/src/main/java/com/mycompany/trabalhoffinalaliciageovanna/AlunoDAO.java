@@ -16,11 +16,11 @@ import org.hibernate.Transaction;
 public class AlunoDAO {
 
     public boolean salvarHibernate(Aluno aluno) {
-        Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
-            session.save(aluno); // salva no banco
-            transaction.commit();
+        Transaction transaction = null; //transação do banco - inicializado como nulo.
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {//sessão de comunicação com o banco
+            transaction = session.beginTransaction();//Inicia a transação no banco de dados. Qualquer operação de salvar ou excluir precisa estar dentro de uma transação
+            session.save(aluno); // salva ou atualiza no banco
+            transaction.commit();// confirma a transação
             return true;
         } catch (Exception e) {
             if (transaction != null) {
@@ -47,10 +47,10 @@ public class AlunoDAO {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
-            // Busca o aluno pelo ID ou matrícula
+            // Busca o aluno pela matrícula
             Aluno aluno = session.createQuery("FROM Aluno a WHERE a.matricula = :matricula", Aluno.class)
                     .setParameter("matricula", matricula)
-                    .uniqueResult();
+                    .uniqueResult();// executa a consulta e retorna um unico obj 
 
             if (aluno != null) {
                 session.delete(aluno); // marca para remover

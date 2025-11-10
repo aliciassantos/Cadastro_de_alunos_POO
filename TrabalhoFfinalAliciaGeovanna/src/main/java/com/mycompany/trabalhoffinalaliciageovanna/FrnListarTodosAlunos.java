@@ -11,10 +11,6 @@ import java.util.Optional;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author geova
- */
 public class FrnListarTodosAlunos extends javax.swing.JDialog {
     private List<Aluno> listaAlunos;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrnListarTodosAlunos.class.getName());
@@ -40,7 +36,7 @@ public class FrnListarTodosAlunos extends javax.swing.JDialog {
     }
     
     private void preencherLista() {
-      StringBuilder sb = new StringBuilder();
+      StringBuilder sb = new StringBuilder();// cria uma string longa,  que mostrará os dados dos alunos
       // Classe que formata data
       SimpleDateFormat sDdateFormate = new SimpleDateFormat("dd/MM/yyyy");
       

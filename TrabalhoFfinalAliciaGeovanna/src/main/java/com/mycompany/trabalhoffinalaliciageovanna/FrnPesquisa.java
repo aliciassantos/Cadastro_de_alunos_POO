@@ -12,15 +12,11 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author DTIC
- */
 public class FrnPesquisa extends javax.swing.JDialog {
 
     private List<Aluno> listaAlunos;
     private AlunoDAO alunoDAO;
-    //contrutor para usar a lista de alunos salva no FrnPrincipal2
+    //construtor para usar a lista de alunos salva no FrnPrincipal2
     public FrnPesquisa(java.awt.Frame parent, boolean modal, List<Aluno> listaRecebida, AlunoDAO alunoDAO) {
         super(parent, modal);
         initComponents();
@@ -333,9 +329,6 @@ public class FrnPesquisa extends javax.swing.JDialog {
 
     }//GEN-LAST:event_jTextFieldMatriculaAFocusLost
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
