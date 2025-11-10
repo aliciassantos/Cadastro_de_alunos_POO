@@ -599,7 +599,7 @@ add(List nameList)   //adiciona ao final da lista
         Date nascA;
         Aluno a; 
         LocalDate dataAtual, nascAlunoDate;
-        
+        String nomeMNovo, nomeMVelho;
         //coleta a data atual
         dataAtual = LocalDate.now();
         
@@ -611,7 +611,8 @@ add(List nameList)   //adiciona ao final da lista
         periodo = Period.between(nascAlunoDate, dataAtual);
         idadeAluno = periodo.getYears();
         menorIdade = idadeAluno;
-        
+        nomeMNovo = a.getNome();
+        nomeMVelho = a.getNome();
         for (int i = 0; i < listaAlunos.size(); i++){
             //pega os dados do aluno com indice i
             a = listaAlunos.get(i);
@@ -627,10 +628,12 @@ add(List nameList)   //adiciona ao final da lista
             //analisa qual é o aluno mais novo e o mais velho
             if (idadeAluno < menorIdade){
                 menorIdade = idadeAluno;
+                nomeMNovo = a.getNome();
             }
             
             if(idadeAluno > maiorIdade){
                 maiorIdade = idadeAluno;
+                nomeMVelho = a.getNome();
             }          
         }
         
@@ -639,7 +642,7 @@ add(List nameList)   //adiciona ao final da lista
         String strMaiorId = String.valueOf(maiorIdade);
         
         //painel de exibição da mensagem
-        JOptionPane.showMessageDialog(null, "O aluno mais novo possui " + strMenorId + " anos e o mais velho possui " + strMaiorId, "Análise de idade", JOptionPane.INFORMATION_MESSAGE);       
+        JOptionPane.showMessageDialog(null, "Aluno(a) mais novo(a): " + nomeMNovo + ", " + strMenorId + " anos\nAluno(a) mais velho(a): " + nomeMVelho + ", " + strMaiorId+ " anos", "Análise de idade", JOptionPane.INFORMATION_MESSAGE);       
     }//GEN-LAST:event_jButtonListarActionPerformed
 
     private void jFormattedTextFieldDataNascFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDataNascFocusLost

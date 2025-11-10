@@ -73,7 +73,7 @@ public class FrnRemove extends javax.swing.JDialog {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("CPF: ");
 
-        jFormattedTextFieldMatriculaRemover.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFormattedTextFieldMatriculaRemover.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jFormattedTextFieldMatriculaRemover.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jFormattedTextFieldMatriculaRemoverFocusLost(evt);
@@ -85,14 +85,14 @@ public class FrnRemove extends javax.swing.JDialog {
             }
         });
 
-        jFormattedTextFieldNomeRemover.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFormattedTextFieldNomeRemover.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jFormattedTextFieldNomeRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextFieldNomeRemoverActionPerformed(evt);
             }
         });
 
-        jFormattedTextFieldCpfRemover.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFormattedTextFieldCpfRemover.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jFormattedTextFieldCpfRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextFieldCpfRemoverActionPerformed(evt);

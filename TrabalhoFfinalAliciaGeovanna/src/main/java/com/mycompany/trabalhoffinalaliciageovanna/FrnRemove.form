@@ -94,7 +94,7 @@
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldMatriculaRemover">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <Events>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFormattedTextFieldMatriculaRemoverFocusLost"/>
@@ -103,7 +103,7 @@
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldNomeRemover">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldNomeRemoverActionPerformed"/>
@@ -111,7 +111,7 @@
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldCpfRemover">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldCpfRemoverActionPerformed"/>
